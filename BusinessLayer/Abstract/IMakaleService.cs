@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
     public interface IMakaleService : IGenericService<Makale>
     {
         List<Makale> MakaleListele();
+        List<Makale> YazarMakale(int id);
     }
 }

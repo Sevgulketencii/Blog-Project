@@ -9,6 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IYorumService : IGenericService<Yorum>
     {
-         List<Yorum> BlogYorum(int id);
+        List<Yorum> BlogYorum(int id);
     }
 }

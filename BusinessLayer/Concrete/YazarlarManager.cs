@@ -9,40 +9,35 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class YorumManager : IYorumService
+    public class YazarlarManager : IYazarlarService
     {
-        IYorumDal _yorum;
-        public YorumManager(IYorumDal veri)
+        IYazarlarDal _yazar;
+        public YazarlarManager(IYazarlarDal veri)
         {
-            _yorum = veri;
+            _yazar = veri;
+
+        }
+        public void ekle(Yazarlar eklenen)
+        {
+            _yazar.ekle(eklenen);
         }
 
-        public List<Yorum> BlogYorum(int id)
-        {
-           return _yorum.IdGetYorum(x => x.MakaleId == id);
-        }
-
-        public void ekle(Yorum eklenen)
-        {
-            _yorum.ekle(eklenen);
-        }
-
-        public void güncelle(Yorum güncellenen)
+        public void güncelle(Yazarlar güncellenen)
         {
             throw new NotImplementedException();
         }
 
-        public Yorum IdGore(int id)
+        public Yazarlar IdGore(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Yorum> Listele()
+        public List<Yazarlar> Listele()
         {
             throw new NotImplementedException();
         }
 
-        public void sil(Yorum silinen)
+        public void sil(Yazarlar silinen)
         {
             throw new NotImplementedException();
         }

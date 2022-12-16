@@ -6,14 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NetCore.ViewComponents.Yorum
+namespace NetCore.ViewComponents.YazarMakale
 {
-    public class _YorumListe:ViewComponent
+    public class _YazarMakale: ViewComponent
     {
-        YorumManager list = new YorumManager(new EfYorumDal());
+        MakaleManager list = new MakaleManager(new EfMakaleDal());
         public IViewComponentResult Invoke()
         {
-            var veri = list.BlogYorum(ViewBag.id);
+            var veri = list.YazarMakale(ViewBag.id);
+
             return View(veri);
         }
     }

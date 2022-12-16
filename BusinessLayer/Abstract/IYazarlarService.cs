@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IYazarlarService : IGenericService<Yazarlar>
     {
+        
     }
 }

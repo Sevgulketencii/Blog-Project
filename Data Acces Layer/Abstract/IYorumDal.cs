@@ -10,6 +10,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IYorumDal: IGenericDal<Yorum>
     {
-        List<Yorum> BlogYorum(Expression<Func<Yorum,bool>>Filter);
+        List<Yorum> IdGetYorum(Expression<Func<Yorum, bool>> Filtre);
     }
 }

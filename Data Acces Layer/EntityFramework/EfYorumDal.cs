@@ -14,11 +14,10 @@ namespace DataAccessLayer.EntityFramework
     public class EfYorumDal : GenericRepository<Yorum>, IYorumDal
     {
         Context baglan = new Context();
-       
 
-        public List<Yorum> BlogYorum(Expression<Func<Yorum, bool>> Filter)
+        public List<Yorum> IdGetYorum(Expression<Func<Yorum, bool>> Filtre)
         {
-            return baglan.YorumDb.Where(Filter).ToList();
+            return baglan.YorumDb.Where(Filtre).ToList();
         }
     }
 }

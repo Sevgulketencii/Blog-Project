@@ -6,14 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NetCore.ViewComponents.Yorum
+namespace NetCore.ViewComponents.Kategori
 {
-    public class _YorumListe:ViewComponent
+    public class _KategoriListe: ViewComponent
     {
-        YorumManager list = new YorumManager(new EfYorumDal());
+        KategoriManager list = new KategoriManager(new EfKategoriDal());
+      
         public IViewComponentResult Invoke()
         {
-            var veri = list.BlogYorum(ViewBag.id);
+            var veri = list.Listele();         
             return View(veri);
         }
     }

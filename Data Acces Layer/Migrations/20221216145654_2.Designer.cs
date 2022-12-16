@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221216145654_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,17 +130,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("MakaleTarih")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("YazarId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("YazarlarYazarId")
-                        .HasColumnType("int");
-
                     b.HasKey("MakaleId");
 
                     b.HasIndex("KategoriId");
-
-                    b.HasIndex("YazarlarYazarId");
 
                     b.ToTable("MakaleDb");
                 });
@@ -216,13 +210,7 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Yazarlar", "Yazarlar")
-                        .WithMany("Makales")
-                        .HasForeignKey("YazarlarYazarId");
-
                     b.Navigation("Kategori");
-
-                    b.Navigation("Yazarlar");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Yorum", b =>
@@ -244,11 +232,6 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>
                 {
                     b.Navigation("Yorums");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Yazarlar", b =>
-                {
-                    b.Navigation("Makales");
                 });
 #pragma warning restore 612, 618
         }
