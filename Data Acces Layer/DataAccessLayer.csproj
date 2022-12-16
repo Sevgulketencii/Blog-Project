@@ -19,12 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EntityFramework\" />
-    <Folder Include="Repository\" />
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

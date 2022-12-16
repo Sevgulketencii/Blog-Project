@@ -18,7 +18,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Yorum> YorumDb { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=Makale;integrated security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=Makale2;integrated security=true");
         }
     }
 }

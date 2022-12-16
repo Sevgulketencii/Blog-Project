@@ -107,6 +107,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("KategoriId")
+                        .HasColumnType("int");
+
                     b.Property<string>("MakaleAciklama")
                         .HasColumnType("nvarchar(max)");
 
@@ -126,6 +129,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MakaleId");
+
+                    b.HasIndex("KategoriId");
 
                     b.ToTable("MakaleDb");
                 });
@@ -195,6 +200,17 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("YorumDb");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Kategori", "Kategori")
+                        .WithMany("Makales")
+                        .HasForeignKey("KategoriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kategori");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Yorum", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Makale", "Makale")
@@ -204,6 +220,11 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Makale");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Kategori", b =>
+                {
+                    b.Navigation("Makales");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>

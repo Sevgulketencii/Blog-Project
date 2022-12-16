@@ -18,5 +18,7 @@ namespace EntityLayer.Concrete
         public DateTime MakaleTarih{ get; set; }
         public bool MakaleStatu{ get; set; }
         public List<Yorum> Yorums { get; set; }
+        public int KategoriId { get; set; }
+        public Kategori Kategori { get; set; }
     }
 }

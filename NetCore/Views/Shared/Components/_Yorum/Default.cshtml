@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="comment-top">
+    <h4>Leave a Comment</h4>
+    <div class="comment-bottom">
+        <form action="/Yorum/Yorumlar" method="post">
+            <input type="hidden" name="MakaleId" value=@ViewBag.id />
+            <input class="form-control" type="text" name="YorumAdi" placeholder="Name" required="">
+            <input class="form-control" type="email" name="Email" placeholder="Email" required="">
+
+            <input class="form-control" type="text" name="YorumBaslik" placeholder="Konu" required="">
+
+            <textarea class="form-control" name="YorumAciklama" placeholder="Mesajınız" required=""></textarea>
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+        </form>
+    </div>
+</div>

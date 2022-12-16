@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221215155052_1")]
+    [Migration("20221215182429_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,6 +109,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("KategoriId")
+                        .HasColumnType("int");
+
                     b.Property<string>("MakaleAciklama")
                         .HasColumnType("nvarchar(max)");
 
@@ -128,6 +131,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MakaleId");
+
+                    b.HasIndex("KategoriId");
 
                     b.ToTable("MakaleDb");
                 });
@@ -197,6 +202,17 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("YorumDb");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Kategori", "Kategori")
+                        .WithMany("Makales")
+                        .HasForeignKey("KategoriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kategori");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Yorum", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Makale", "Makale")
@@ -206,6 +222,11 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Makale");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Kategori", b =>
+                {
+                    b.Navigation("Makales");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>

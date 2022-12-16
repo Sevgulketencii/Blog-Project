@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Weblog a Blogging Category Bootstrap responsive WebTemplate | Blog3 :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="~/Kullanici/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/Kullanici/css/single.css">
+    <link href="~/Kullanici/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Kullanici/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+</head>
+
+<body>
+
+
+    @await Html.PartialAsync("_HeaderPartial") 
+    <div class="banner-inner">
+    </div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Blog3</li>
+    </ol>
+
+ 
+    <div class="container">
+        @RenderBody();
+    </div>
+    @await Html.PartialAsync("_FooterPartial"); 
+  
+    @await Html.PartialAsync("_ScriptPartial")
+
+
+</body>
+
+</html>

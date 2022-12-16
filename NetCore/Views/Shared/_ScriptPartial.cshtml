@@ -1,0 +1,30 @@
+﻿<script src="~/Kullanici/js/jquery-2.2.3.min.js"></script>
+<script src="~/Kullanici/js/move-top.js"></script>
+<script src="~/Kullanici/js/easing.js"></script>
+<script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+</script>
+
+
+<script>
+        $(document).ready(function () {
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+</script>
+<a href="#home" class="scroll" id="toTop" style="display: block;">
+    <span id="toTopHover" style="opacity: 1;"> </span>
+</a>
+
+
+<script src="~/Kullanici/js/bootstrap.js"></script>

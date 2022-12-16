@@ -14,5 +14,6 @@ namespace EntityLayer.Concrete
         public string KategoriAdi { get; set; }
         public string KategoriAciklama { get; set; }
         public bool KategoriStatu { get; set; }
+        public List<Makale> Makales { get; set; }
     }
 }

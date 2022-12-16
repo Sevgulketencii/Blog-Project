@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<Kategori>
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategori ID</th>
+                <th>Kategori ADI</th>
+                <th>Kategori AÇIKLAMA</th>
+                <th>Kategori STATÜ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.KategoriId</td>
+                    <td>@item.KategoriAdi</td>
+                    <td>@item.KategoriAciklama</td>
+                    <td>@item.KategoriStatu</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>

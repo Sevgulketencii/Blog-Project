@@ -59,24 +59,6 @@ namespace DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MakaleDb",
-                columns: table => new
-                {
-                    MakaleId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MakaleAdi = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MakaleBaslik = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MakaleAciklama = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MakaleImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MakaleTarih = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MakaleStatu = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MakaleDb", x => x.MakaleId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "YazarlarDb",
                 columns: table => new
                 {
@@ -93,6 +75,31 @@ namespace DataAccessLayer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_YazarlarDb", x => x.YazarId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MakaleDb",
+                columns: table => new
+                {
+                    MakaleId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MakaleAdi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MakaleBaslik = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MakaleAciklama = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MakaleImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MakaleTarih = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MakaleStatu = table.Column<bool>(type: "bit", nullable: false),
+                    KategoriId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MakaleDb", x => x.MakaleId);
+                    table.ForeignKey(
+                        name: "FK_MakaleDb_KategoriDb_KategoriId",
+                        column: x => x.KategoriId,
+                        principalTable: "KategoriDb",
+                        principalColumn: "KategoriId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -120,6 +127,11 @@ namespace DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_MakaleDb_KategoriId",
+                table: "MakaleDb",
+                column: "KategoriId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_YorumDb_MakaleId",
                 table: "YorumDb",
                 column: "MakaleId");
@@ -134,9 +146,6 @@ namespace DataAccessLayer.Migrations
                 name: "IletisimDb");
 
             migrationBuilder.DropTable(
-                name: "KategoriDb");
-
-            migrationBuilder.DropTable(
                 name: "YazarlarDb");
 
             migrationBuilder.DropTable(
@@ -144,6 +153,9 @@ namespace DataAccessLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "MakaleDb");
+
+            migrationBuilder.DropTable(
+                name: "KategoriDb");
         }
     }
 }
