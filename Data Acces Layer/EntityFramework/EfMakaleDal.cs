@@ -20,6 +20,11 @@ namespace DataAccessLayer.EntityFramework
             return baglan.MakaleDb.Include(x => x.Kategori).ToList();
         }
 
+        public List<Makale> SonMakaleler()
+        {
+            return baglan.MakaleDb.OrderByDescending(x => x.MakaleId).Take(4).ToList();
+        }
+
         public List<Makale> YazarMakale(Expression<Func<Makale, bool>> Filtre)
         {
             return baglan.MakaleDb.Where(Filtre).ToList();

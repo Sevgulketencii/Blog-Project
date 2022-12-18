@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="container">
+    <div class="contact_grid_right">
+        <form action="/Iletisim/Iletisim" method="post">
+            <div class="row contact_left_grid">
+                <div class="col-md-6 con-left">
+                    <div class="form-group">
+                        <label for="validationCustom01 my-2">Adınız</label>
+                        <input class="form-control" name="IletisimAdi" type="text"placeholder="" required="">
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">E-mail Adresiniz</label>
+                        <input class="form-control"  name="IletisimSoyadi" placeholder="" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom03 my-2">Konu</label>
+                        <input class="form-control" type="text" name="IletisimBaslik" placeholder="" required="">
+                    </div>
+                </div>
+                <div class="col-md-6 con-right">
+                    <div class="form-group">
+                        <label for="textarea">Mesajınız</label>
+                        <textarea id="textarea" name="IletsimMesaj" placeholder=""></textarea>
+                    </div>
+                    <input class="form-control" type="submit" value="Gönder">
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

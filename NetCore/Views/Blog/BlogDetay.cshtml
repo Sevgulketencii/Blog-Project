@@ -64,15 +64,7 @@
                         <div class="tech-btm">
                             <img src="~/Kullanici/images/banner1.jpg" class="img-fluid" alt="">
                         </div>
-                        <div class="tech-btm">
-                            <h4>Sign up to our newsletter</h4>
-                            <p>Pellentesque dui, non felis. Maecenas male </p>
-                            <form action="#" method="post">
-                                <input type="email" placeholder="Email" required="">
-                                <input type="submit" value="Subscribe">
-                            </form>
-
-                        </div>
+                        @await Component.InvokeAsync("_MailBülteni")
                         @await Component.InvokeAsync("_KategoriListe")
                         @await Component.InvokeAsync("_YazarMakale")
                         <div class="single-gd my-5 tech-btm">

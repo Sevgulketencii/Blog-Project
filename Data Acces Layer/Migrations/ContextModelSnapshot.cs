@@ -100,6 +100,21 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("KategoriDb");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.MailBülteni", b =>
+                {
+                    b.Property<int>("MailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MailId");
+
+                    b.ToTable("MailDb");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>
                 {
                     b.Property<int>("MakaleId")
@@ -217,7 +232,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.HasOne("EntityLayer.Concrete.Yazarlar", "Yazarlar")
-                        .WithMany("Makales")
+                        .WithMany()
                         .HasForeignKey("YazarlarYazarId");
 
                     b.Navigation("Kategori");
@@ -244,11 +259,6 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>
                 {
                     b.Navigation("Yorums");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Yazarlar", b =>
-                {
-                    b.Navigation("Makales");
                 });
 #pragma warning restore 612, 618
         }

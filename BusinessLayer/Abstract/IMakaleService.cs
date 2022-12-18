@@ -11,5 +11,7 @@ namespace BusinessLayer.Abstract
     {
         List<Makale> MakaleListele();
         List<Makale> YazarMakale(int id);
+        List<Makale> SonMakaleler();
+
     }
 }

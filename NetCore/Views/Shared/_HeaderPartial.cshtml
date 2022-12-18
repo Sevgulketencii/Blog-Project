@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-4 logo text-left">
                 <a class="navbar-brand" href="index.html">
-                    <i class="fab fa-linode"></i> Weblog
+                    <i class="fab fa-linode"></i> KetBlog
                 </a>
             </div>
             <div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
@@ -65,19 +65,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            Anasayfa
-                            <span class="sr-only">(current)</span>
-                        </a>
+                        <a class="nav-link" asp-controller="Blog" asp-action="Blog">Bloglar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Hakkimizda</a>
+                        <a class="nav-link" asp-controller="Hakkinda" asp-action="Hakkinda">Hakkimizda</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Bloglar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">İletişim</a>
+                        <a class="nav-link" asp-controller="Iletisim" asp-action="Iletisim">İletişim</a>
                     </li>
 
                 </ul>

@@ -16,9 +16,10 @@ namespace DataAccessLayer.Concrete
         public DbSet<Makale> MakaleDb { get; set; }
         public DbSet<Yazarlar> YazarlarDb { get; set; } 
         public DbSet<Yorum> YorumDb { get; set; }
+        public DbSet<MailBülteni> MailDb { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=Makale2;integrated security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=Makale3;integrated security=true");
         }
     }
 }

@@ -47,6 +47,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Makale> SonMakaleler()
+        {
+            return _makale.SonMakaleler();
+        }
+
         public List<Makale> YazarMakale(int id)
         {
             return _makale.YazarMakale(x => x.YazarId == id);

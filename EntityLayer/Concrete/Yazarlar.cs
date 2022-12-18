@@ -18,6 +18,6 @@ namespace EntityLayer.Concrete
         public string YazarHakkinda { get; set; }
         public string YazarImgUrl { get; set; }
         public bool YazarStatu { get; set; }
-        public List<Makale> Makales { get; set; }
+        public List<Makale> Makales;
     }
 }
