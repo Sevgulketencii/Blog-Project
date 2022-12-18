@@ -13,6 +13,7 @@ namespace BusinessLayer.Concrete
     public class MakaleManager : IMakaleService
     {
         IMakaleDal _makale;
+
         public MakaleManager(IMakaleDal veri)
         {
             _makale = veri;

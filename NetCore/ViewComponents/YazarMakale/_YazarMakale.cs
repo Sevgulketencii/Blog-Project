@@ -13,7 +13,7 @@ namespace NetCore.ViewComponents.YazarMakale
         MakaleManager list = new MakaleManager(new EfMakaleDal());
         public IViewComponentResult Invoke()
         {
-            var veri = list.YazarMakale(ViewBag.id);
+            var veri = list.YazarMakale(ViewBag.yid);
 
             return View(veri);
         }

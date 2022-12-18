@@ -23,7 +23,9 @@ namespace NetCore.Controllers
         public IActionResult BlogDetay(int id)
         {
             ViewBag.id = id;
+            
             var list = veri.IdGore(id);
+            ViewBag.yid = list.YazarId;
             return View(list);
         }
     }
