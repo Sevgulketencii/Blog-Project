@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace NetCore.Controllers
 {
+    
     [AllowAnonymous]
     public class BlogController : Controller
     {

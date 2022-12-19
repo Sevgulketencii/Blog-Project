@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
         }
         public void ekle(Makale eklenen)
         {
-            throw new NotImplementedException();
+            _makale.ekle(eklenen);
         }
 
         public void güncelle(Makale güncellenen)

@@ -28,6 +28,7 @@ namespace NetCore.Controllers
             var giris = baglan.YazarlarDb.FirstOrDefault(x => x.YazarMail == yazar.YazarMail && x.YazarSifre == yazar.YazarSifre);
             if (giris != null)
             {
+                ViewBag.kullanici = giris.YazarId;
                 var claims = new List<Claim>
                 {
                    new Claim(ClaimTypes.Name,yazar.YazarMail)

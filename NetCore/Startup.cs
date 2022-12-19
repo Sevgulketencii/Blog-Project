@@ -27,7 +27,7 @@ namespace NetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
+       
             services.AddMvc(x =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -55,9 +55,9 @@ namespace NetCore
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-           
-            app.UseRouting();
             app.UseAuthentication();
+            app.UseRouting();
+           
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "MakaleList";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model List<Makale>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Makale ID</th>
+            <th>Makale ADI</th>
+            <th>Makale</th>
+            <th>Makale Img URL</th>
+            <th>Makale Tarih</th>
+
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.MakaleId</td>
+            <td>@item.MakaleBaslik</td>
+            <td>@item.MakaleAciklama</td>
+            <td>@item.MakaleImgUrl</td>
+            <td>@item.MakaleTarih</td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+        }
+
+    </tbody>
+</table><br />
+<td><a asp-controller="Yazar" asp-action="MakaleEkle" class="btn btn-primary">Ekle</a></td>
+
