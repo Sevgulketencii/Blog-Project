@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model Makale
+
+<div>
+    <form action="/Yazar/Güncelle" method="post">
+
+        <label>Blog Başlık</label><br />
+        <input type="text" name="MakaleBaslik" value=@Model.MakaleBaslik class="form-control" /><br />
+
+        <label>Blog Metin</label><br />
+        <input type="text" name="MakaleAciklama" value=@Model.MakaleAciklama class="form-control" /><br />
+
+        <label>Blog Img URL</label><br />
+        <input type="text" name="MakaleImgUrl" value=@Model.MakaleImgUrl class="form-control" /><br />
+
+        <label>Blog Kategori</label><br />
+        <select name="KategoriId"  class="form-control">
+            <option value="1">Yazılım</option>
+            <option value="2">Teknoloji</option>
+            <option value="3">Sinema</option>
+            <option value="4">Oyun</option>
+        </select>
+
+
+        <button action="submit" class="btn btn-success">Güncelle</button>
+
+    </form>
+</div>

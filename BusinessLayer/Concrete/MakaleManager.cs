@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
 
         public void güncelle(Makale güncellenen)
         {
-            throw new NotImplementedException();
+            _makale.güncelle(güncellenen);
         }
 
         public Makale IdGore(int id)
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
 
         public void sil(Makale silinen)
         {
-            throw new NotImplementedException();
+             _makale.sil(silinen);
         }
 
         public List<Makale> SonMakaleler()

@@ -27,8 +27,8 @@
             <td>@item.MakaleAciklama</td>
             <td>@item.MakaleImgUrl</td>
             <td>@item.MakaleTarih</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+            <td><a asp-controller="Yazar" asp-action="Sil" asp-route-id=@item.MakaleId  class="btn btn-danger">Sil</a></td>
+            <td><a  asp-controller="Yazar" asp-action="Güncelle" asp-route-id=@item.MakaleId class="btn btn-warning">Güncelle</a></td>
         </tr>
         }
 
