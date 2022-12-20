@@ -15,6 +15,12 @@ namespace DataAccessLayer.EntityFramework
     public class EfMakaleDal : GenericRepository<Makale>, IMakaleDal
     {
         Context baglan = new Context();
+
+        public int MakaleCount()
+        {
+            return baglan.MakaleDb.Count();
+        }
+
         public List<Makale> MakaleListele()
         {
             return baglan.MakaleDb.Include(x => x.Kategori).ToList();
@@ -22,12 +28,17 @@ namespace DataAccessLayer.EntityFramework
 
         public List<Makale> SonMakaleler()
         {
-            return baglan.MakaleDb.OrderByDescending(x => x.MakaleId).Take(4).ToList();
+            return baglan.MakaleDb.Include(x => x.Kategori).OrderByDescending(x => x.MakaleId).Take(4).ToList();
         }
 
         public List<Makale> YazarMakale(Expression<Func<Makale, bool>> Filtre)
         {
             return baglan.MakaleDb.Where(Filtre).ToList();
+        }
+
+        public int YazarSayi(Expression<Func<Makale, bool>> FiltreSayi)
+        {
+            return baglan.MakaleDb.Where(FiltreSayi).Count();
         }
     }
 }

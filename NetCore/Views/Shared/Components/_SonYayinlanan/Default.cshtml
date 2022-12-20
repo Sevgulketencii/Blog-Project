@@ -1,0 +1,44 @@
+﻿@using EntityLayer.Concrete
+@model List<Makale>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Son 10 Makale</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                             
+                                <th> Başlık </th>
+                                <th> Kategori </th>
+                                <th> Tarih </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                
+                                <td>
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> @item.MakaleBaslik
+                                </td>
+                                
+                                <td>
+                                    <label class="badge badge-gradient-success">@item.Kategori.KategoriAdi</label>
+                                </td>
+                                <td> @item.MakaleTarih.ToShortDateString() </td>
+                                
+                            </tr>
+                            }
+                            
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

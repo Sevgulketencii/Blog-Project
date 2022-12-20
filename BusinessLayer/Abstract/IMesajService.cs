@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IKategoriService : IGenericService<Kategori>
+    public interface IMesajService:IGenericService<Mesaj>
     {
-        int KategoriCount();
+        List<Mesaj> YazarMesaj(string mail);
     }
 }

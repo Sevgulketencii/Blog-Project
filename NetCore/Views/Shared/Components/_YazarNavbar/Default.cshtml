@@ -20,27 +20,33 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" asp-controller="Yazar" asp-action="MakaleList">
+            <a class="nav-link" asp-controller="YazarDashBoard" asp-action="DashBoard">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-                <span class="menu-title">Profilim</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" asp-controller="Yazar" asp-action="MakaleList">
                 <span class="menu-title">Bloglarım</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" asp-controller="Yazar" asp-action="YazarBilgi">
+                <span class="menu-title">Profilim</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Yazar" asp-action="MakaleEkle">
                 <span class="menu-title">Yeni Blog</span>
+                <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Yazar" asp-action="Bildirimler">
+                <span class="menu-title">Bildirimler</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
             </a>
         </li>
@@ -51,7 +57,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" asp-controller="Blog" asp-action="Blog">
                 <span class="menu-title">Siteye Dön</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
             </a>

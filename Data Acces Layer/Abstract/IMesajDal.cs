@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IKategoriDal : IGenericDal<Kategori>
+    public interface IMesajDal:IGenericDal<Mesaj>
     {
-        int KategoriCount();
+        List<Mesaj> YazarMesaj(Expression<Func<Mesaj,bool>>Filtre);
     }
 }

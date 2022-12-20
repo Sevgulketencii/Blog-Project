@@ -1,5 +1,4 @@
 ﻿using DataAccessLayer.Abstract;
-using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using System;
@@ -10,12 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfKategoriDal : GenericRepository<Kategori>, IKategoriDal
+    public class EfBildirimDal:GenericRepository<Bildirim>,IBildirimDal
     {
-        Context baglan=new Context();
-        public int KategoriCount()
-        {
-            return baglan.KategoriDb.Count();
-        }
+      
     }
 }

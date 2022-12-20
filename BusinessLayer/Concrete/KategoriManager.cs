@@ -32,6 +32,11 @@ namespace BusinessLayer.Concrete
             return _kategori.IdyeGore(id);
         }
 
+        public int KategoriCount()
+        {
+            return _kategori.KategoriCount();
+        }
+
         public List<Kategori> Listele()
         {
             return _kategori.Listele();

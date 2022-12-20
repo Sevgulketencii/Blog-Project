@@ -1,5 +1,4 @@
-﻿
-using BusinessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace NetCore.ViewComponents.Yazar
 {
-    public class _YazarMesaj : ViewComponent
+    public class _YazarHakkinda : ViewComponent
     {
-        MesajManager veri = new MesajManager(new EfMesajDal());
-        
+        YazarlarManager list = new YazarlarManager(new EfYazarlarDal());
         public IViewComponentResult Invoke()
         {
-            var list = veri.YazarMesaj("ketenci2554@gmail.com");
-            return View(list);
+            var veri = list.IdGore(1);
+            return View(veri);
         }
     }
 }

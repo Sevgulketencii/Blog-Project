@@ -17,10 +17,11 @@ namespace EntityLayer.Concrete
         public string MakaleImgUrl{ get; set; }
         public DateTime MakaleTarih{ get; set; }
         public bool MakaleStatu{ get; set; }
+       
         public List<Yorum> Yorums { get; set; }
         public int KategoriId { get; set; }
         public Kategori Kategori { get; set; }
         public int YazarId { get; set; }
-        public Yazarlar Yazarlar  { get; set; }
+        public Yazarlar Yazar  { get; set; }
     }
 }

@@ -24,12 +24,12 @@ namespace BusinessLayer.Concrete
 
         public void güncelle(Yazarlar güncellenen)
         {
-            throw new NotImplementedException();
+            _yazar.güncelle(güncellenen);
         }
 
         public Yazarlar IdGore(int id)
         {
-            throw new NotImplementedException();
+            return _yazar.IdyeGore(id);
         }
 
         public List<Yazarlar> Listele()

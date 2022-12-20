@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             return _makale.Listele();
         }
 
+        public int MakaleCount()
+        {
+            return _makale.MakaleCount();
+        }
+
         public List<Makale> MakaleListele()
         {
             return _makale.MakaleListele();
@@ -56,6 +61,11 @@ namespace BusinessLayer.Concrete
         public List<Makale> YazarMakale(int id)
         {
             return _makale.YazarMakale(x => x.YazarId == id);
+        }
+
+        public int YazarMakCount(int id)
+        {
+            return _makale.YazarSayi(x => x.YazarId == id);
         }
     }
 }

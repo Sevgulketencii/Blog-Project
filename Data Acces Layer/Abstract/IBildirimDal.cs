@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract
+namespace DataAccessLayer.Abstract
 {
-    public interface IKategoriService : IGenericService<Kategori>
+    public interface IBildirimDal:IGenericDal<Bildirim>
     {
-        int KategoriCount();
     }
 }

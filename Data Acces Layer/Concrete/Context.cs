@@ -17,6 +17,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<Yazarlar> YazarlarDb { get; set; } 
         public DbSet<Yorum> YorumDb { get; set; }
         public DbSet<MailBülteni> MailDb { get; set; }
+        public DbSet<Bildirim> BildirimDb { get; set; }
+        public DbSet<Mesaj> MesajDb { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=Makale3;integrated security=true");

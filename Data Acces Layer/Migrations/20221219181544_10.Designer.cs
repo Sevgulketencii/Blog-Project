@@ -4,47 +4,22 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221219181544_10")]
+    partial class _10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("EntityLayer.Concrete.Bildirim", b =>
-                {
-                    b.Property<int>("BildirimId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BildirimAciklama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BildirimImg")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("BildirimStatu")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("BildirimTarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("BildirimTürü")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BildirimId");
-
-                    b.ToTable("BildirimDb");
-                });
 
             modelBuilder.Entity("EntityLayer.Concrete.Hakkimizda", b =>
                 {
@@ -170,6 +145,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("MakaleTarih")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Puan")
+                        .HasColumnType("int");
+
                     b.Property<int>("YazarId")
                         .HasColumnType("int");
 
@@ -180,33 +158,6 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("YazarId");
 
                     b.ToTable("MakaleDb");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Mesaj", b =>
-                {
-                    b.Property<int>("MesajId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("MesajAciklama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MesajAlici")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MesajGönderen")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("MesajStatu")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("MesajTarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MesajId");
-
-                    b.ToTable("MesajDb");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Yazarlar", b =>

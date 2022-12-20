@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Bildirimler";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model List<Bildirim>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Bildirim ID</th>
+                            <th>Bildirim</th>
+                            <th>Bildirim Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.BildirimId</td>
+                                <td>@item.BildirimAciklama</td>
+                                <td>@item.BildirimTarih.ToShortDateString()</td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table><br />
+
+

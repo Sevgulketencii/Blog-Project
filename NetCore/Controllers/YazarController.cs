@@ -15,6 +15,8 @@ namespace NetCore.Controllers
     public class YazarController : Controller
     {
         MakaleManager list = new MakaleManager(new EfMakaleDal());
+        YazarlarManager list2 = new YazarlarManager(new EfYazarlarDal());
+        BildirimManager list3 = new BildirimManager(new EfBildirimDal());
         public IActionResult Yazar()
         {
             return View();
@@ -69,6 +71,28 @@ namespace NetCore.Controllers
             list.güncelle(güncel);
 
             return RedirectToAction("MakaleList","Yazar");
+        }
+
+        public IActionResult YazarBilgi()
+        {
+            var veri = list2.IdGore(1);
+            return View(veri);
+        }
+
+        [HttpPost]
+        public IActionResult YazarBilgi(Yazarlar güncel)
+        {
+            güncel.YazarId = 1;
+            güncel.YazarStatu = true;
+            list2.güncelle(güncel);
+            return RedirectToAction("YazarBilgi", "Yazar");
+        }
+
+
+        public IActionResult Bildirimler()
+        {
+            var veri = list3.Listele();
+            return View(veri);
         }
     }
 }
