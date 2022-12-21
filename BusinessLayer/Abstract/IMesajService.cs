@@ -9,6 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IMesajService:IGenericService<Mesaj>
     {
-        List<Mesaj> YazarMesaj(string mail);
+        List<Mesaj> YazarMesaj(int alici);
     }
 }

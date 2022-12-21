@@ -15,9 +15,18 @@ namespace DataAccessLayer.EntityFramework
     public class EfYazarlarDal : GenericRepository<Yazarlar>, IYazarlarDal
     {
         Context baglan = new Context();
+
+        public Yazarlar Yazar(string mail)
+        {
+            return baglan.YazarlarDb.FirstOrDefault(x=>x.YazarMail==mail);
+        }
+
         public List<Yazarlar> YazarBlog(Expression<Func<Yazarlar, bool>> Filtre)
         {
             return baglan.YazarlarDb.Include(x => x.Makales).Where(Filtre).ToList();
         }
+
+
+       
     }
 }

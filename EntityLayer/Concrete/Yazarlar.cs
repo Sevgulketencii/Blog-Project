@@ -19,5 +19,7 @@ namespace EntityLayer.Concrete
         public string YazarImgUrl { get; set; }
         public bool YazarStatu { get; set; }
         public List<Makale> Makales;
+        public virtual ICollection<Mesaj> Alıcı { get; set; }
+        public virtual ICollection<Mesaj> Gonderen { get; set; }
     }
 }

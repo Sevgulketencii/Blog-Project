@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         List<Makale> SonMakaleler();
         int MakaleCount();
         int YazarMakCount(int id);
+        
     }
 }

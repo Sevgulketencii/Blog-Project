@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Mesajlar";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Mesajlar";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model List<Mesaj>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Gönderen</th>
+            <th>Tarih</th>
+            <th>Mesajı Aç</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MesajId</td>
+                <td>@item.Gönderen.YazarAdi</td>
+                <td>@item.MesajTarih.ToShortDateString()</td>
+                <td><a asp-controller="Mesaj" asp-action="MesajDetay" asp-route-id=@item.MesajId class="btn btn-primary">Mesajı Aç</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>
+<br />
+<a href="#" class="btn btn-success">Yeni Mesaj</a>

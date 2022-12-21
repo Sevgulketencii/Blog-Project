@@ -15,7 +15,8 @@ namespace NetCore.ViewComponents.Yazar
         
         public IViewComponentResult Invoke()
         {
-            var list = veri.YazarMesaj("ketenci2554@gmail.com");
+            var list = veri.YazarMesaj(1);
+           
             return View(list);
         }
     }

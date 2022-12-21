@@ -11,10 +11,12 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int MesajId { get; set; }
-        public string MesajAlici { get; set; }
-        public string MesajGönderen { get; set; }
+        public int? MesajAlici { get; set; }
+        public int? MesajGönderen { get; set; }
         public string MesajAciklama { get; set; }
         public DateTime MesajTarih { get; set; }
         public bool MesajStatu { get; set; }
+        public Yazarlar Alici { get; set; }
+        public Yazarlar Gönderen { get; set; }
     }
 }

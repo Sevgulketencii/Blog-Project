@@ -15,5 +15,6 @@ namespace DataAccessLayer.Abstract
         List<Makale> SonMakaleler();
         int MakaleCount();
         int YazarSayi(Expression<Func<Makale,bool>>FiltreSayi);
+        
     }
 }

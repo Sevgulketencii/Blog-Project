@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -19,13 +20,15 @@ namespace NetCore.Controllers
         BildirimManager list3 = new BildirimManager(new EfBildirimDal());
         public IActionResult Yazar()
         {
+           
             return View();
         }
 
         public IActionResult MakaleList()
         {
-            //ViewBag.kullanici; loginde alınıyor
-            var veri = list.YazarMakale(1);
+            var user = User.Identity.Name;
+            var id = list2.Yazar(user);
+            var veri = list.YazarMakale(id.YazarId);
             return View(veri);
         }
 
@@ -38,8 +41,10 @@ namespace NetCore.Controllers
         [HttpPost]
         public IActionResult MakaleEkle(Makale eklenen)
         {
+            var user = User.Identity.Name;
+            var id = list2.Yazar(user);
             eklenen.MakaleStatu = true;
-            eklenen.YazarId = 1;
+            eklenen.YazarId = id.YazarId;
             
             list.ekle(eklenen);
             return RedirectToAction("MakaleList", "Yazar");
@@ -75,14 +80,18 @@ namespace NetCore.Controllers
 
         public IActionResult YazarBilgi()
         {
-            var veri = list2.IdGore(1);
+            var user = User.Identity.Name;
+            var id = list2.Yazar(user);
+            var veri = list2.IdGore(id.YazarId);
             return View(veri);
         }
 
         [HttpPost]
         public IActionResult YazarBilgi(Yazarlar güncel)
         {
-            güncel.YazarId = 1;
+            var user = User.Identity.Name;
+            var id = list2.Yazar(user);
+            güncel.YazarId = id.YazarId;
             güncel.YazarStatu = true;
             list2.güncelle(güncel);
             return RedirectToAction("YazarBilgi", "Yazar");
@@ -94,5 +103,8 @@ namespace NetCore.Controllers
             var veri = list3.Listele();
             return View(veri);
         }
+
+
+        
     }
 }

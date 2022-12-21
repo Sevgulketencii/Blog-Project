@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
     public interface IYazarlarService : IGenericService<Yazarlar>
     {
         
+        Yazarlar Yazar(string mail);
     }
 }

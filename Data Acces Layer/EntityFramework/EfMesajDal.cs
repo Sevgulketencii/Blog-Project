@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,9 @@ namespace DataAccessLayer.EntityFramework
         Context baglan = new Context();
         public List<Mesaj> YazarMesaj(Expression<Func<Mesaj, bool>> Filtre)
         {
-            return baglan.MesajDb.Where(Filtre).ToList();
+            return baglan.MesajDb.Include(x=>x.Gönderen).Where(Filtre).ToList();
         }
+
+       
     }
 }

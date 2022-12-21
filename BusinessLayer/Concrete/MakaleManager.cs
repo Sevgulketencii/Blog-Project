@@ -58,6 +58,8 @@ namespace BusinessLayer.Concrete
             return _makale.SonMakaleler();
         }
 
+        
+
         public List<Makale> YazarMakale(int id)
         {
             return _makale.YazarMakale(x => x.YazarId == id);

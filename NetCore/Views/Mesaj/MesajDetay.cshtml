@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "MesajDetay";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model Mesaj
+
+
+<label>Mesaj Id</label>
+<br />
+<input type="text" value=@Model.MesajId class="form-control" readonly />
+<br />
+
+<label>Mesaj Gönderen</label>
+<br />
+<input type="text" value=@Model.MesajTarih.ToShortDateString() class="form-control" readonly />
+<br />
+
+<label>Mesaj</label>
+<br />
+<textarea type="text" class="form-control" readonly rows="4" cols="10">@Model.MesajAciklama </textarea>
+<br />
+
+<a asp-controller="Mesaj" asp-action="Mesajlar" class="btn btn-success">Geri Dön</a>

@@ -41,5 +41,12 @@ namespace BusinessLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Yazarlar Yazar(string mail)
+        {
+            return _yazar.Yazar(mail);
+        }
+
+        
     }
 }
