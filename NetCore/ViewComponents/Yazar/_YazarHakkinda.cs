@@ -14,8 +14,8 @@ namespace NetCore.ViewComponents.Yazar
         public IViewComponentResult Invoke()
         {
             var user = User.Identity.Name;
-            var kullanici = list.YazarHakkinda(user);
-            var veri = list.IdGore(kullanici);
+            var kullanici = list.Yazar(user);
+            var veri = list.IdGore(kullanici.YazarId);
             return View(veri);
         }
     }

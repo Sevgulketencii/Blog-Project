@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using EntityLayer.Concrete
+@model List<Kategori>
+   
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategori ID</th>
+                <th>Kategori ADI</th>
+                <th>Kategori Açıklama</th>
+                <th>Kategori Statü</th>
+                <th>Düzenle</th>
+                <th>Aktif Yap</th>
+                <th>Pasif Yap</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.KategoriId</td>
+                    <td>@item.KategoriAdi</td>
+                    <td>@item.KategoriAciklama</td>
+                    <td>@item.KategoriStatu</td>
+                    <td><a href="#"  class="btn btn-warning">Düzenle</a></td>
+                    <td><a asp-action="Aktif" asp-controller="Admin" asp-area="Admin" asp-route-id=@item.KategoriId  class="btn btn-success">Aktif Yap</a></td>
+                    <td><a asp-action="Pasif" asp-controller="Admin" asp-area="Admin" asp-route-id=@item.KategoriId  id="btn1" onclick="return confirm('Yayından kaldırmak istediğine emin misin ?')" class="btn btn-danger">Pasif Yap</a></td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="KategoriEkle" asp-controller="Admin" asp-area="Admin" class="btn btn-primary">Kategori Ekle</a>
+   
