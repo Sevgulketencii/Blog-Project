@@ -18,7 +18,7 @@ namespace DataAccessLayer.EntityFramework
 
         public int MakaleCount()
         {
-            return baglan.MakaleDb.Count();
+            return baglan.MakaleDb.ToList().Count();
         }
 
         public List<Makale> MakaleListele()

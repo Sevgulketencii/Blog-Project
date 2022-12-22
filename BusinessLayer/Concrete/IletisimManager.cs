@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<Iletisim> Listele()
         {
-            throw new NotImplementedException();
+            return _iletisim.Listele();
         }
 
         public void sil(Iletisim silinen)
