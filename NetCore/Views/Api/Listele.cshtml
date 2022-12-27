@@ -1,0 +1,31 @@
+﻿@using NetCore.Controllers
+@model List<Class1>
+@{
+    ViewData["Title"] = "Listele";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Listele</h1>
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Yazar ID</th>
+            <th>Yazar ADI</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+
+        </tr>
+    </thead>
+    <tbody></tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.yazarId</td>
+            <td>@item.yazarAdi</td>
+            <td><a asp-controller="Api" asp-action="Sil" asp-route-id=@item.yazarId class="btn btn-danger">Sil</a></td>
+            <td><a asp-controller="Api" asp-action="Güncelle" asp-route-id=@item.yazarId class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+
+</table>

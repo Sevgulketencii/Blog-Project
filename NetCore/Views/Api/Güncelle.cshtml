@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using NetCore.Controllers
+@model Class1
+    <hr />
+    <label>ADI</label>
+    <br />
+    <form action="/Api/Güncelle" method="post">
+        <input type="hidden" name="YazarId" value=@Model.yazarId />
+        <input type="text" name="YazarAdi" value=@Model.yazarAdi /><BR /><BR />
+        <button action="submit" class="btn btn-success">Güncelle</button>
+    </form>

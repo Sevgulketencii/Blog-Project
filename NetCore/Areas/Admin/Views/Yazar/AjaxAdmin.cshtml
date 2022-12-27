@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "AjaxAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>AjaxAdmin</h1>
+<div>
+    <p>Yazarlar consol'da listelenicek</p>
+    <button class="btn btn-danger" id="btn1">Consol'a getir</button>
+
+</div>
+@section script{ 
+    <script>
+        $('btn1').click(function () {
+
+            $.ajax({
+                contentType: "application.json",
+                dataType: "json",
+                type: "Get",
+                url: "/Admin/Yazar/Yazarlar/",
+                success: function (func) {
+                    console.log(func)
+                }
+                
+
+
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Ekle</h1>
+
+<form action="/Api/Ekle" method="post">
+    <br />
+    <input type="text" name="YazarAdi" class="form-control"  />
+    <br />
+    <button action="submit" class="btn btn-success">Ekle</button>
+</form>
