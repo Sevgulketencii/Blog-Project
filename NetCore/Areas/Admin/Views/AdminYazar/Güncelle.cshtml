@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using NetCore.Areas.Admin.Controllers
+@model YazarClass
+
+<form asp-area="Admin" asp-controller="AdminYazar" asp-action="Güncelle" method="post">
+    <br />
+    <label><strong>Yazar Adı</strong></label>
+    <input type="hidden" name="YazarId" value=@Model.YazarId />
+    <input type="text" name="YazarAdi" class="form-control" value=@Model.YazarAdi /><br />
+    <button action="submit" class="btn btn-success">Güncelle</button>
+</form>

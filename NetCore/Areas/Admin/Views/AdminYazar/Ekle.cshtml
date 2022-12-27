@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<form asp-area="Admin" asp-controller="AdminYazar" asp-action="Ekle" method="post">
+    <br />
+    <label><strong>Yazar Adı</strong></label>
+    <input type="text" name="YazarAdi" class="form-control" /><br />
+    <button action="submit" class="btn btn-success">Ekle</button>
+</form>

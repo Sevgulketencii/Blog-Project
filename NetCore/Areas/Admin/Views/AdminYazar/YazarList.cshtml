@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "YazarList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using NetCore.Areas.Admin.Controllers
+@model List<YazarClass> 
+
+<h1>Yazar Listemiz</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Yazar Id</th>
+            <th>Yazar Adi</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.YazarId</td>
+                <td>@item.YazarAdi</td>
+                <td><a asp-area="Admin" asp-controller="AdminYazar" asp-action="Sil" asp-route-id=@item.YazarId class="btn btn-danger">Sil</a></td>
+                <td><a asp-area="Admin" asp-controller="AdminYazar" asp-action="Güncelle" asp-route-id=@item.YazarId class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a asp-area="Admin" asp-controller="AdminYazar" asp-action="Ekle" class="btn btn-success">Ekle</a>
