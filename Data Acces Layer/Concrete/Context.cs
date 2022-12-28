@@ -1,5 +1,4 @@
 ﻿using EntityLayer.Concrete;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-    public class Context : IdentityDbContext<AppUser,AppRole,int>
+    public class Context : DbContext
     {
         public DbSet<Hakkimizda> HakkimizdaDb { get; set; }
         public DbSet<Iletisim> IletisimDb { get; set; }
@@ -37,7 +36,7 @@ namespace DataAccessLayer.Concrete
                 .HasForeignKey(z => z.MesajGönderen)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
-            base.OnModelCreating(modelBuilder); // identity hata vermemesi için
+           
         }
      
     }

@@ -13,37 +13,36 @@ namespace NetCore.Controllers
     [AllowAnonymous]
     public class IdentityKayit : Controller
     {
-        protected readonly UserManager<AppUser> _userManager;
 
-        public IdentityKayit(UserManager<AppUser> userManager)
-        {
-            _userManager = userManager;
-        }
+        //public IdentityKayit(UserManager<AppUser> userManager)
+        //{
+        //    _userManager = userManager;
+        //}
 
-        [HttpGet]
-        public IActionResult KayitOl()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult KayitOl()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> KayitOl(UserSignUp p)
-        {
-            AppUser user = new AppUser()
-            {
-                Ad = p.ad,
-                Soyad = p.soyad,
-                Email = p.mail,
+        //[HttpPost]
+        //public async Task<IActionResult> KayitOl(UserSignUp p)
+        //{
+        //    AppUser user = new AppUser()
+        //    {
+        //        Ad = p.ad,
+        //        Soyad = p.soyad,
+        //        Email = p.mail,
 
-            };
+        //    };
 
-            var result = await _userManager.CreateAsync(user, p.sifre);
-            if (result.Succeeded)
-            {
-                return RedirectToAction("YazarLogin", "YazarLogin");
-            }
+        //    var result = await _userManager.CreateAsync(user, p.sifre);
+        //    if (result.Succeeded)
+        //    {
+        //        return RedirectToAction("YazarLogin", "YazarLogin");
+        //    }
 
-            return View(p);
-        }
+        //    return View(p);
+        //}
     }
 }
