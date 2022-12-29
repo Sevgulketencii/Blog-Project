@@ -21,7 +21,7 @@ namespace EntityLayer.Concrete
         public List<Yorum> Yorums { get; set; }
         public int KategoriId { get; set; }
         public Kategori Kategori { get; set; }
-        public int YazarId { get; set; }
-        public Yazarlar Yazar  { get; set; }
+        public int Id { get; set; }
+        public AppUser Yazar  { get; set; }
     }
 }

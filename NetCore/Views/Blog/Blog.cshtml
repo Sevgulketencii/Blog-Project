@@ -42,7 +42,7 @@
                                 <h5 class="card-title">
                                     <a asp-controller="Blog" asp-action="BlogDetay" asp-route-id=@item.MakaleId>@item.MakaleBaslik</a>
                                 </h5>
-                                <p class="card-text mb-3">@item.MakaleAciklama.Substring(0,6) </p>
+                                <p class="card-text mb-3">@item.MakaleAciklama </p>
                                 <a asp-controller="Blog" asp-action="BlogDetay" asp-route-id=@item.MakaleId class="btn btn-primary read-m">Devamını Oku</a>
                             </div>
                         </div>

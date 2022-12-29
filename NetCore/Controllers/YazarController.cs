@@ -3,7 +3,9 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NetCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +20,25 @@ namespace NetCore.Controllers
         MakaleManager list = new MakaleManager(new EfMakaleDal());
         YazarlarManager list2 = new YazarlarManager(new EfYazarlarDal());
         BildirimManager list3 = new BildirimManager(new EfBildirimDal());
+        KullaniciManager list4 = new KullaniciManager(new EfKullaniciDal());
+
+        UserManager<AppUser> _userManager;
+
+        public YazarController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         public IActionResult Yazar()
         {
            
             return View();
         }
 
-        public IActionResult MakaleList()
+        public async Task<IActionResult> MakaleList()
         {
-            //var user = User.Identity.Name;
-            //var id = list2.Yazar(user);
-            var veri = list.YazarMakale(1);
+            var user =await _userManager.FindByNameAsync(User.Identity.Name);
+            var veri = list.YazarMakale(user.Id);
             return View(veri);
         }
 
@@ -39,62 +49,69 @@ namespace NetCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakaleEkle(Makale eklenen)
+        public async Task<IActionResult> MakaleEkle(Makale eklenen)
         {
-            //var user = User.Identity.Name;
-            //var id = list2.Yazar(user);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             eklenen.MakaleStatu = true;
-            eklenen.YazarId = 1;
+            eklenen.Id = user.Id;
             
             list.ekle(eklenen);
             return RedirectToAction("MakaleList", "Yazar");
         }
 
-
-        public IActionResult Sil(int id)
+        [HttpGet]
+        public IActionResult MakaleSil(int id)
         {
             var sil=list.IdGore(id);
             list.sil(sil);
             return RedirectToAction("MakaleList", "Yazar");
         }
 
-        
-        public IActionResult Güncelle(int id)
+        [HttpGet]
+        public IActionResult MakaleGüncelle(int id)
         {
             var veri = list.IdGore(id);
-
             return View(veri);
         }
 
         [HttpPost]
-        public IActionResult Güncelle(Makale güncel)
+        public IActionResult MakaleGüncelle(Makale güncel)
         {
-            güncel.MakaleId = 7;
-            güncel.MakaleAdi = güncel.MakaleBaslik;
-            güncel.MakaleTarih =DateTime.Parse(DateTime.Now.ToShortDateString());
-            güncel.YazarId = 1;
-            list.güncelle(güncel);
+            var güncellenen = list.IdGore(güncel.MakaleId);
+
+            güncellenen.MakaleAciklama = güncel.MakaleAciklama;
+            güncellenen.MakaleBaslik = güncel.MakaleBaslik;
+            güncellenen.MakaleImgUrl = güncel.MakaleImgUrl;
+            güncellenen.KategoriId = güncel.KategoriId;
+            
+            list.güncelle(güncellenen);
 
             return RedirectToAction("MakaleList","Yazar");
         }
 
-        public IActionResult YazarBilgi()
+        public async Task<IActionResult> YazarBilgi()
         {
-            //var user = User.Identity.Name;
-            //var id = list2.Yazar(user);
-            var veri = list2.IdGore(1);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var veri = list4.IdGore(user.Id);
             return View(veri);
         }
 
         [HttpPost]
-        public IActionResult YazarBilgi(Yazarlar güncel)
+        public async Task<IActionResult> YazarBilgi(UserUpdateModel p)
         {
-            //var user = User.Identity.Name;
-            //var id = list2.Yazar(user);
-            güncel.YazarId = 1;
-            güncel.YazarStatu = true;
-            list2.güncelle(güncel);
-            return RedirectToAction("YazarBilgi", "Yazar");
+            var user =await _userManager.FindByNameAsync(User.Identity.Name);
+            user.adSoyad = p.adSoyad;
+            user.Email = p.mail;
+            user.ImgUrl = p.imgUrl;
+            user.hakkinda = p.hakkinda;
+
+            var result=await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("YazarBilgi", "Yazar");
+            }
+
+            return View(p);
         }
 
 

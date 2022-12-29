@@ -46,6 +46,18 @@ namespace NetCore.Controllers
             
             return View(p);
         }
+
+
+        public async Task<IActionResult> YazarLogOut()
+        {
+
+            var result = _signInManager.SignOutAsync();
+            if (result.IsCompletedSuccessfully)
+            {
+                return RedirectToAction("Blog","Blog");
+            }
+            return View();
+        }
         //var giris = baglan.YazarlarDb.FirstOrDefault(x => x.YazarMail == yazar.YazarMail && x.YazarSifre == yazar.YazarSifre);
             //if (giris != null)
             //{

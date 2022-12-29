@@ -62,12 +62,12 @@ namespace BusinessLayer.Concrete
 
         public List<Makale> YazarMakale(int id)
         {
-            return _makale.YazarMakale(x => x.YazarId == id);
+            return _makale.YazarMakale(x => x.Id == id);
         }
 
         public int YazarMakCount(int id)
         {
-            return _makale.YazarSayi(x => x.YazarId == id);
+            return _makale.YazarSayi(x => x.Id == id);
         }
     }
 }

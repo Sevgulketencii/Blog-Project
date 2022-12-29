@@ -10,6 +10,8 @@
         <label>Blog Başlık</label><br />
         <input type="text" name="MakaleBaslik" value="" class="form-control" /><br />
 
+        <input type="hidden" name="MakaleTarih" value=@DateTime.Now class="form-control" /><br />
+
         <label>Blog Metin</label><br />
         <input type="text" name="MakaleAciklama" value="" class="form-control" /><br />
 
@@ -23,7 +25,7 @@
             <option value="3">Sinema</option>
             <option value="4">Oyun</option>
         </select>
-        
+
 
         <button action="submit" class="btn btn-success">Ekle</button>
 

@@ -26,7 +26,7 @@ namespace NetCore.Controllers
             ViewBag.id = id;
             
             var list = veri.IdGore(id);
-            ViewBag.yid = list.YazarId;
+            ViewBag.yid = list.Id;
             return View(list);
         }
     }

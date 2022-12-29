@@ -7,7 +7,9 @@
 @model Makale
 
 <div>
-    <form action="/Yazar/Güncelle" method="post">
+    <form action="/Yazar/MakaleGüncelle" method="post">
+        
+        <input type="hidden" name="MakaleId" value=@Model.MakaleId class="form-control" /><br />
 
         <label>Blog Başlık</label><br />
         <input type="text" name="MakaleBaslik" value=@Model.MakaleBaslik class="form-control" /><br />
@@ -19,7 +21,7 @@
         <input type="text" name="MakaleImgUrl" value=@Model.MakaleImgUrl class="form-control" /><br />
 
         <label>Blog Kategori</label><br />
-        <select name="KategoriId"  class="form-control">
+        <select name="KategoriId" class="form-control">
             <option value="1">Yazılım</option>
             <option value="2">Teknoloji</option>
             <option value="3">Sinema</option>
