@@ -16,7 +16,7 @@ namespace EntityLayer.Concrete
         public string MesajAciklama { get; set; }
         public DateTime MesajTarih { get; set; }
         public bool MesajStatu { get; set; }
-        public Yazarlar Alici { get; set; }
-        public Yazarlar Gönderen { get; set; }
+        public AppUser Alici { get; set; }
+        public AppUser Gönderen { get; set; }
     }
 }

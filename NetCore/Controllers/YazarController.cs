@@ -26,9 +26,9 @@ namespace NetCore.Controllers
 
         public IActionResult MakaleList()
         {
-            var user = User.Identity.Name;
-            var id = list2.Yazar(user);
-            var veri = list.YazarMakale(id.YazarId);
+            //var user = User.Identity.Name;
+            //var id = list2.Yazar(user);
+            var veri = list.YazarMakale(1);
             return View(veri);
         }
 
@@ -41,10 +41,10 @@ namespace NetCore.Controllers
         [HttpPost]
         public IActionResult MakaleEkle(Makale eklenen)
         {
-            var user = User.Identity.Name;
-            var id = list2.Yazar(user);
+            //var user = User.Identity.Name;
+            //var id = list2.Yazar(user);
             eklenen.MakaleStatu = true;
-            eklenen.YazarId = id.YazarId;
+            eklenen.YazarId = 1;
             
             list.ekle(eklenen);
             return RedirectToAction("MakaleList", "Yazar");
@@ -80,18 +80,18 @@ namespace NetCore.Controllers
 
         public IActionResult YazarBilgi()
         {
-            var user = User.Identity.Name;
-            var id = list2.Yazar(user);
-            var veri = list2.IdGore(id.YazarId);
+            //var user = User.Identity.Name;
+            //var id = list2.Yazar(user);
+            var veri = list2.IdGore(1);
             return View(veri);
         }
 
         [HttpPost]
         public IActionResult YazarBilgi(Yazarlar güncel)
         {
-            var user = User.Identity.Name;
-            var id = list2.Yazar(user);
-            güncel.YazarId = id.YazarId;
+            //var user = User.Identity.Name;
+            //var id = list2.Yazar(user);
+            güncel.YazarId = 1;
             güncel.YazarStatu = true;
             list2.güncelle(güncel);
             return RedirectToAction("YazarBilgi", "Yazar");

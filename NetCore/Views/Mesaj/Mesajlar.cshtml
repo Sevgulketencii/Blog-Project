@@ -26,7 +26,7 @@
         {
             <tr>
                 <td>@item.MesajId</td>
-                <td>@item.Gönderen.YazarAdi</td>
+                <td>@item.Gönderen.adSoyad</td>
                 <td>@item.MesajTarih.ToShortDateString()</td>
                 <td><a asp-controller="Mesaj" asp-action="MesajDetay" asp-route-id=@item.MesajId class="btn btn-primary">Mesajı Aç</a></td>
             </tr>

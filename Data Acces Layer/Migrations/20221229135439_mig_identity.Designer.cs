@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221227212549_mig_identity_1")]
-    partial class mig_identity_1
+    [Migration("20221229135439_mig_identity")]
+    partial class mig_identity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,9 +60,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Ad")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -82,9 +79,6 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Memleket")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -106,15 +100,21 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Soyad")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("adSoyad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("hakkinda")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yazarStatu")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -259,6 +259,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AppUserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("KategoriId")
                         .HasColumnType("int");
 
@@ -285,6 +288,8 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("MakaleId");
 
+                    b.HasIndex("AppUserId");
+
                     b.HasIndex("KategoriId");
 
                     b.HasIndex("YazarId");
@@ -298,6 +303,12 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AppUserId1")
+                        .HasColumnType("int");
 
                     b.Property<string>("MesajAciklama")
                         .HasColumnType("nvarchar(max)");
@@ -315,6 +326,10 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MesajId");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("AppUserId1");
 
                     b.HasIndex("MesajAlici");
 
@@ -491,6 +506,10 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Makale", b =>
                 {
+                    b.HasOne("EntityLayer.Concrete.AppUser", null)
+                        .WithMany("Makales")
+                        .HasForeignKey("AppUserId");
+
                     b.HasOne("EntityLayer.Concrete.Kategori", "Kategori")
                         .WithMany("Makales")
                         .HasForeignKey("KategoriId")
@@ -510,6 +529,14 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Mesaj", b =>
                 {
+                    b.HasOne("EntityLayer.Concrete.AppUser", null)
+                        .WithMany("Alici")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("EntityLayer.Concrete.AppUser", null)
+                        .WithMany("Gonderen")
+                        .HasForeignKey("AppUserId1");
+
                     b.HasOne("EntityLayer.Concrete.Yazarlar", "Alici")
                         .WithMany("Alıcı")
                         .HasForeignKey("MesajAlici");
@@ -583,6 +610,15 @@ namespace DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.Navigation("Alici");
+
+                    b.Navigation("Gonderen");
+
+                    b.Navigation("Makales");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Kategori", b =>

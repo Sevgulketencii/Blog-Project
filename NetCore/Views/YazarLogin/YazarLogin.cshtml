@@ -12,12 +12,12 @@
             <div class="login p-5 bg-light mx-auto mw-100">
                 <form asp-controller="YazarLogin" asp-action="YazarLogin" method="post">
                     <div class="form-group">
-                        <label for="exampleInputEmail1 mb-2">E-Mail Adresiniz</label>
-                        <input type="email" name="YazarMail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                        <label for="exampleInputEmail1 mb-2">Kullanıcı Adı</label>
+                        <input type="text" name="kullaniciAdi" class="form-control"   placeholder="" required="">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1 mb-2">Şifreniz</label>
-                        <input type="password" name="YazarSifre" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                        <input type="password" name="sifre" class="form-control" placeholder="" required="">
                     </div>
                    
                     <button type="submit" class="btn btn-primary submit mb-4">Giriş Yap</button>

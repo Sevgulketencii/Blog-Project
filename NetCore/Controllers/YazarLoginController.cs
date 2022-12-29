@@ -5,7 +5,9 @@ using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NetCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,13 @@ namespace NetCore.Controllers
     public class YazarLoginController : Controller
     {
         Context baglan = new Context();
-     
+        SignInManager<AppUser> _signInManager;
+
+        public YazarLoginController(SignInManager<AppUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+
         public IActionResult YazarLogin()
         {
            
@@ -26,23 +34,17 @@ namespace NetCore.Controllers
         }
       
         [HttpPost]
-        public async Task<IActionResult> YazarLogin(Yazarlar yazar)
+        public async Task<IActionResult> YazarLogin(UserSignIn p)
         {
-            var giris = baglan.YazarlarDb.FirstOrDefault(x => x.YazarMail == yazar.YazarMail && x.YazarSifre == yazar.YazarSifre);
-            if (giris != null)
+
+            var result = await _signInManager.PasswordSignInAsync(p.kullaniciAdi, p.sifre, false, false);
+            if (result.Succeeded)
             {
-                
-                var claims = new List<Claim>
-                {
-                   new Claim(ClaimTypes.Name,yazar.YazarMail)
-                };
-                var useridenty = new ClaimsIdentity(claims, "Login");
-                ClaimsPrincipal princal = new ClaimsPrincipal(useridenty);
-                await HttpContext.SignInAsync(princal);
-               
-                return RedirectToAction("DashBoard", "YazarDashBoard");
+                return RedirectToAction("MakaleList", "Yazar");
             }
-            return View();
+               
+            
+            return View(p);
         }
         //var giris = baglan.YazarlarDb.FirstOrDefault(x => x.YazarMail == yazar.YazarMail && x.YazarSifre == yazar.YazarSifre);
             //if (giris != null)
