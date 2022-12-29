@@ -23,7 +23,7 @@ namespace DataAccessLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=Makale3;integrated security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-KCH0A99;database=BlogNetCore;integrated security=true");
         }
 
         protected override void  OnModelCreating(ModelBuilder modelBuilder)

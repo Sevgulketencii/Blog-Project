@@ -13,10 +13,10 @@ namespace NetCore.ViewComponents.Yazar
         YazarlarManager list = new YazarlarManager(new EfYazarlarDal());
         public IViewComponentResult Invoke()
         {
-            var user = User.Identity.Name;
-            var userid = list.Yazar(user);
-            ViewBag.kullaniciId = userid.YazarAdi;
-            ViewBag.kullaniciId2 = userid.YazarAdi;
+            //var user = User.Identity.Name;
+            //var userid = list.Yazar(user);
+            //ViewBag.kullaniciId = userid.YazarAdi;
+            //ViewBag.kullaniciId2 = userid.YazarAdi;
             return View();
 
         }

@@ -13,9 +13,9 @@ namespace NetCore.ViewComponents.Yazar
         YazarlarManager list = new YazarlarManager(new EfYazarlarDal());
         public IViewComponentResult Invoke()
         {
-            var user = User.Identity.Name;
-            var kullanici = list.Yazar(user);
-            var veri = list.IdGore(kullanici.YazarId);
+            //var user = User.Identity.Name;
+            //var kullanici = list.Yazar(user);
+            var veri = list.IdGore(1);
             return View(veri);
         }
     }
