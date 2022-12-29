@@ -3,7 +3,7 @@
     ViewData["Title"] = "MakaleEkle";
     Layout = "~/Views/Shared/YazarLayout.cshtml";
 }
-
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <div>
     <form action="/Yazar/MakaleEkle" method="post">
 
@@ -27,7 +27,7 @@
         </select>
 
 
-        <button action="submit" class="btn btn-success">Ekle</button>
+        <button id="btn1" action="submit" class="btn btn-success">Ekle</button>
 
     </form>
 </div>

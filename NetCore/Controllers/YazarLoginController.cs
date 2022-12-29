@@ -19,7 +19,7 @@ namespace NetCore.Controllers
     [AllowAnonymous]
     public class YazarLoginController : Controller
     {
-        Context baglan = new Context();
+        
         SignInManager<AppUser> _signInManager;
 
         public YazarLoginController(SignInManager<AppUser> signInManager)
@@ -27,6 +27,7 @@ namespace NetCore.Controllers
             _signInManager = signInManager;
         }
 
+        [HttpGet]
         public IActionResult YazarLogin()
         {
            
@@ -41,6 +42,7 @@ namespace NetCore.Controllers
             if (result.Succeeded)
             {
                 return RedirectToAction("MakaleList", "Yazar");
+
             }
                
             
@@ -48,7 +50,7 @@ namespace NetCore.Controllers
         }
 
 
-        public async Task<IActionResult> YazarLogOut()
+        public IActionResult YazarLogOut()
         {
 
             var result = _signInManager.SignOutAsync();

@@ -15,7 +15,7 @@
         <input type="text" name="MakaleBaslik" value=@Model.MakaleBaslik class="form-control" /><br />
 
         <label>Blog Metin</label><br />
-        <input type="text" name="MakaleAciklama" value=@Model.MakaleAciklama class="form-control" /><br />
+        <textarea type="text" name="MakaleAciklama" rows="6" class="form-control">@Model.MakaleAciklama</textarea><br />
 
         <label>Blog Img URL</label><br />
         <input type="text" name="MakaleImgUrl" value=@Model.MakaleImgUrl class="form-control" /><br />
@@ -27,7 +27,7 @@
             <option value="3">Sinema</option>
             <option value="4">Oyun</option>
         </select>
-
+        <br />
 
         <button action="submit" class="btn btn-success">Güncelle</button>
 

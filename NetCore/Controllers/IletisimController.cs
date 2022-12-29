@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace NetCore.Controllers
 {
+    [AllowAnonymous]
+
     public class IletisimController : Controller
     {
         IletisimManager veri = new IletisimManager(new EfIletisimDal());

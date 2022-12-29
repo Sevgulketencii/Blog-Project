@@ -28,10 +28,10 @@
                                 <tr>
                                     <td>@item.MakaleId</td>
                                     <td>@item.MakaleBaslik</td>
-                                    <td>@item.MakaleAciklama</td>
+                                    <td>@item.MakaleAciklama.Substring(0,25)</td>
                                     <td>@item.MakaleImgUrl</td>
                                     <td>@item.MakaleTarih.ToShortDateString()</td>
-                                    <td><a asp-controller="Yazar" asp-action="MakaleSil" asp-route-id=@item.MakaleId class="btn btn-danger">Sil</a></td>
+                                    <td><a asp-controller="Yazar" asp-action="MakaleSil" asp-route-id=@item.MakaleId onclick="return confirm('Silmek istediğine emin misin ?')" id="btn1" class="btn btn-danger">Sil</a></td>
                                     <td><a asp-controller="Yazar" asp-action="MakaleGüncelle" asp-route-id=@item.MakaleId class="btn btn-warning">Güncelle</a></td>
                                 </tr>
                             }
@@ -44,3 +44,4 @@
             </div>
         </div>
     </div>
+ 

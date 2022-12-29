@@ -24,6 +24,8 @@ namespace NetCore.Controllers
 
         UserManager<AppUser> _userManager;
 
+
+
         public YazarController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
@@ -51,12 +53,14 @@ namespace NetCore.Controllers
         [HttpPost]
         public async Task<IActionResult> MakaleEkle(Makale eklenen)
         {
+            
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             eklenen.MakaleStatu = true;
             eklenen.Id = user.Id;
             
             list.ekle(eklenen);
-            return RedirectToAction("MakaleList", "Yazar");
+            ViewBag.ok = 1;
+            return View();
         }
 
         [HttpGet]
