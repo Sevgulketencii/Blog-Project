@@ -38,7 +38,7 @@
             </li>
             @await Component.InvokeAsync("_BildirimMesaj")
             <li>
-                <a href="widgets.html"><i class="fa fa-comment"></i> <span class="nav-label">Yorumlar</span></a>
+                <a asp-area="Admin" asp-controller="AdminYorum" asp-action="YorumList"><i class="fa fa-comment"></i> <span class="nav-label">Yorumlar</span></a>
             </li>
             <li>
                 <a asp-area="Admin" asp-controller="Widgets" asp-action="Widgets"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">* Grafikler</span>  </a>

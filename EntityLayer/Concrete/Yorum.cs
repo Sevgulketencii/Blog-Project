@@ -12,9 +12,8 @@ namespace EntityLayer.Concrete
         [Key]
         public int YorumId { get; set; }
         public string YorumAdi { get; set; }
-        public string YorumBaslik { get; set; }
         public string YorumAciklama { get; set; }
-        public string YorumStatu{ get; set; }
+        public bool YorumStatu{ get; set; }
         public DateTime YorumTarih{ get; set; }
         public int MakaleId { get; set; }
         public Makale Makale { get; set; }

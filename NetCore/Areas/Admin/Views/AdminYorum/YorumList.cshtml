@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "YorumList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model List<Yorum> 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Yorum Id</th>
+            <th>Adı Soyadı</th>
+            <th>Yorum</th>
+            <th>Tarih</th>
+            <th>Yorum Statü</th>
+            <th>Makale</th>
+            <th>Yayına Al</th>
+            <th>Yayından Kaldır</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.YorumId</td>
+                <td>@item.YorumAdi</td>
+                <td>@item.YorumAciklama</td>
+                <td>@item.YorumTarih</td>
+                <td>@item.YorumStatu</td>
+                <td>@item.Makale.MakaleAdi</td>
+                <td><a asp-area="Admin" asp-controller="AdminYorum" asp-action="StatuTrue" asp-route-id=@item.YorumId class="btn btn-primary">Yayına Koy</a></td>
+                <td><a asp-area="Admin" asp-controller="AdminYorum" asp-action="StatuFalse" asp-route-id=@item.YorumId class="btn btn-warning">Yayından Kaldır</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

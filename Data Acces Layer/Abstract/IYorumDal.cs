@@ -11,5 +11,6 @@ namespace DataAccessLayer.Abstract
     public interface IYorumDal: IGenericDal<Yorum>
     {
         List<Yorum> IdGetYorum(Expression<Func<Yorum, bool>> Filtre);
+        List<Yorum> AdminYorum();
     }
 }
