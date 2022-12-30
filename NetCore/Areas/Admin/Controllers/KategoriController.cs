@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace NetCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AdminController : Controller
+    public class KategoriController : Controller
     {
         KategoriManager kategoriList = new KategoriManager(new EfKategoriDal());
         

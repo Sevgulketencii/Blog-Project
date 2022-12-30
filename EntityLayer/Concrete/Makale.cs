@@ -17,6 +17,7 @@ namespace EntityLayer.Concrete
         public string MakaleImgUrl{ get; set; }
         public DateTime MakaleTarih{ get; set; }
         public bool MakaleStatu{ get; set; }
+        public bool AdminOnay{ get; set; }
        
         public List<Yorum> Yorums { get; set; }
         public int KategoriId { get; set; }

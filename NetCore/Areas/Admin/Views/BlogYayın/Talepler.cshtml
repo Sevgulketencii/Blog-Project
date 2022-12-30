@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Talepler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Makale Id</th>
+            <th>Makale Başlık</th>
+            <th>Makale Açıklama</th>
+            <th>Makale Yazar</th>
+            <th>Onay Ver</th>
+            <th>Onay Verme</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MakaleId</td>
+                <td>@item.MakaleBaslik</td>
+                <td>@item.MakaleAciklama.Substring(0, 100)</td>
+                <td>@item.Id</td>
+                <td><a asp-area="Admin" asp-controller="BlogYayın" asp-action="OnayTrue" asp-route-id=@item.MakaleId class="btn btn-primary">Onay Ver</a></td>
+                <td><a asp-area="Admin" asp-controller="BlogYayın" asp-action="OnayFalse" asp-route-id=@item.MakaleId class="btn btn-warning">Onay Verme</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

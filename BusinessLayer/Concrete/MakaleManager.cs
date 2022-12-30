@@ -18,6 +18,12 @@ namespace BusinessLayer.Concrete
         {
             _makale = veri;
         }
+
+        public List<Makale> AdminOnay()
+        {
+           return _makale.OnayAdmin(x => x.AdminOnay == false);
+        }
+
         public void ekle(Makale eklenen)
         {
             _makale.ekle(eklenen);
@@ -36,6 +42,11 @@ namespace BusinessLayer.Concrete
         public List<Makale> Listele()
         {
             return _makale.Listele();
+        }
+
+        public List<Makale> MakaleAdmin()
+        {
+            return _makale.MakaleAdmin();
         }
 
         public int MakaleCount()

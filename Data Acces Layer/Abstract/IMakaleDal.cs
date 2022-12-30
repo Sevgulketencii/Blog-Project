@@ -10,6 +10,8 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMakaleDal: IGenericDal<Makale>
     {
+        List<Makale> MakaleAdmin();
+        List<Makale> OnayAdmin(Expression<Func<Makale,bool>>Onay);
         List<Makale> MakaleListele();
         List<Makale> YazarMakale(Expression<Func<Makale, bool>> Filtre);
         List<Makale> SonMakaleler();

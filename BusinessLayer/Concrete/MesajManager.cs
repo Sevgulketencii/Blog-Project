@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
         }
         public void ekle(Mesaj eklenen)
         {
-            throw new NotImplementedException();
+            _mesaj.ekle(eklenen);
         }
 
         public void güncelle(Mesaj güncellenen)

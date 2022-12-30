@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "MesajGonder";
+    Layout = "~/Views/Shared/YazarLayout.cshtml";
+}
+@using NetCore.Models
+@model MesajGön
+
+<form asp-controller="Mesaj" asp-action="MesajGonder" method="post">
+   
+    @if (ViewBag.hata == 1)
+    {
+        <label class="alert-danger"><strong>Yazar Adını Kontrol Ediniz</strong></label><br />
+    }
+    <label>Mesaj Göndermek İstediğin Yazarın Kullanıcı Adı</label>
+    <input type="text" name="aliciAdi" class="form-control" /><br />
+
+    <label>Mesaj Metniniz</label>
+    <input type="text" name="mesajAciklama" class="form-control" /><br />
+
+    <input type="hidden" name="mesajTarih" value=@DateTime.Now />
+    <button action="submit" class="btn btn-primary">Gönder</button>
+
+
+</form>
+

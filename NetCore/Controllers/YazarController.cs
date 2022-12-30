@@ -53,13 +53,11 @@ namespace NetCore.Controllers
         [HttpPost]
         public async Task<IActionResult> MakaleEkle(Makale eklenen)
         {
-            
+               
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             eklenen.MakaleStatu = true;
-            eklenen.Id = user.Id;
-            
+            eklenen.Id = user.Id;      
             list.ekle(eklenen);
-            ViewBag.ok = 1;
             return View();
         }
 
@@ -75,7 +73,7 @@ namespace NetCore.Controllers
         public IActionResult MakaleGüncelle(int id)
         {
             var veri = list.IdGore(id);
-            return View(veri);
+                return View(veri);
         }
 
         [HttpPost]

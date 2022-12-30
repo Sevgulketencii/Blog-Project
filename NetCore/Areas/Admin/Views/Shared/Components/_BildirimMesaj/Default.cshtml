@@ -1,0 +1,20 @@
+﻿
+<li>
+    <a asp-area="Admin" asp-controller="BlogYayın" asp-action="Talepler">
+        <i class="fa fa-circle"></i> <span class="nav-label">Yayın Talepleri</span>@{
+            if (ViewBag.New == 1)
+            {
+                <span class="label label-info float-right">NEW</span>
+            }
+        }
+    </a>
+</li>
+<li>
+    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label"> Mesajlar </span><span class="label label-warning float-right">0/0</span></a>
+    <ul class="nav nav-second-level collapse">
+        <li><a href="mailbox.html">Gelen Kutusu</a></li>
+        <li><a href="mail_detail.html">Giden Kutusu</a></li>
+        <li><a href="mail_compose.html">Yeni Mesaj</a></li>
+
+    </ul>
+</li>

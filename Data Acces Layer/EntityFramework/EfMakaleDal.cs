@@ -16,6 +16,11 @@ namespace DataAccessLayer.EntityFramework
     {
         Context baglan = new Context();
 
+        public List<Makale> MakaleAdmin()
+        {
+            return baglan.MakaleDb.Where(x=>x.AdminOnay == true).ToList();// Burada AppUser include edilip yazar adına erişilmesi gerekiyor
+        }
+
         public int MakaleCount()
         {
             return baglan.MakaleDb.ToList().Count();
@@ -23,7 +28,12 @@ namespace DataAccessLayer.EntityFramework
 
         public List<Makale> MakaleListele()
         {
-            return baglan.MakaleDb.Include(x => x.Kategori).ToList();
+            return baglan.MakaleDb.Include(x => x.Kategori).Where(y=>y.MakaleStatu==true && y.AdminOnay==true).ToList();
+        }
+
+        public List<Makale> OnayAdmin(Expression<Func<Makale, bool>> Onay)
+        {
+            return baglan.MakaleDb.Where(Onay).ToList();
         }
 
         public List<Makale> SonMakaleler()

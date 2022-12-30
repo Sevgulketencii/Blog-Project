@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Static Tables</title>
+    <title>KET BLOG</title>
 
     <link href="~/admin/admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/admin/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -94,7 +94,7 @@
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                                <i class="fa fa-bell"></i>  <span class="label label-primary">@TempData["TalepCount"]</span>
                             </a>
                             <ul class="dropdown-menu dropdown-alerts">
                                 <li>
@@ -145,25 +145,7 @@
 
                 </nav>
             </div>
-            <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-lg-10">
-                    <h2>Static Tables</h2>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a>Tables</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            <strong>Static Tables</strong>
-                        </li>
-                    </ol>
-                </div>
-                <div class="col-lg-2">
-
-                </div>
-            </div>
+      
             
                 <div class="container">
                     @RenderBody()
@@ -175,7 +157,7 @@
                     10GB of <strong>250GB</strong> Free.
                 </div>
                 <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2018
+                    <strong>KET BLOG ADMİN</strong> Example Company &copy; @DateTime.Now.Year
                 </div>
             </div>
 

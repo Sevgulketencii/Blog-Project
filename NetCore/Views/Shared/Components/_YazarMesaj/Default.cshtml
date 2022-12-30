@@ -11,7 +11,7 @@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-                <img src="~/writer/assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                <img src=@item.Gönderen.ImgUrl alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                 <h6 class="preview-subject ellipsis mb-1 font-weight-normal">@item.Gönderen.adSoyad sana bir mesaj yolladı</h6>
@@ -23,5 +23,5 @@
 
 
     <div class="dropdown-divider"></div>
-    <h6 class="p-3 mb-0 text-center">1 Yeni Mesaj</h6>
+    <h6 class="p-3 mb-0 text-center">@ViewBag.count Yeni Mesaj</h6>
 </div>
