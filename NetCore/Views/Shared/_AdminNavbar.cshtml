@@ -24,9 +24,6 @@
             </li>
 
             <li>
-                <a asp-area="Admin" asp-controller="Widgets" asp-action="Widgets"><i class="fa fa-pie-chart"></i> <span class="nav-label">Widget</span>  </a>
-            </li>
-            <li>
                 <a asp-area="Admin" asp-controller="Kategori" asp-action="Kategori"><i class="fa fa-group"></i> <span class="nav-label">Kategoriler</span>  </a>
             </li>
             <li>
@@ -34,9 +31,11 @@
             </li>
 
             <li>
-                <a asp-area="Admin" asp-controller="AdminBlog" asp-action="BlogList"><i class="fa fa-book"></i> <span class="nav-label">Bloglar</span>  </a>
+                <a asp-area="Admin" asp-controller="AdminBlog" asp-action="Bloglar"><i class="fa fa-book"></i> <span class="nav-label">Bloglar</span>  </a>
             </li>
+
             @await Component.InvokeAsync("_BildirimMesaj")
+
             <li>
                 <a asp-area="Admin" asp-controller="AdminYorum" asp-action="YorumList"><i class="fa fa-comment"></i> <span class="nav-label">Yorumlar</span></a>
             </li>
@@ -59,30 +58,8 @@
             <li>
                 <a href="widgets.html"><i class="fa fa-book"></i> <span class="nav-label">Hakkımızda</span></a>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Formlar</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="form_basic.html">Basic form</a></li>
-                    <li><a href="form_advanced.html">Advanced Plugins</a></li>
-                    <li><a href="form_wizard.html">Wizard</a></li>
-                    <li><a href="form_file_upload.html">File Upload</a></li>
-                    <li><a href="form_editors.html">Text Editor</a></li>
-                    <li><a href="form_autocomplete.html">Autocomplete</a></li>
-                    <li><a href="form_markdown.html">Markdown</a></li>
-                </ul>
-            </li>
 
 
-
-            <li class="active">
-                <a href="#"><i class="fa fa-table"></i> <span class="nav-label">Tablolar</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li class="active"><a href="table_basic.html">Static Tables</a></li>
-                    <li><a href="table_data_tables.html">Data Tables</a></li>
-                    <li><a href="table_foo_table.html">Foo Tables</a></li>
-                    <li><a href="jq_grid.html">jqGrid</a></li>
-                </ul>
-            </li>
 
             <li>
                 <a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Galeri</span><span class="fa arrow"></span></a>
@@ -95,7 +72,9 @@
             </li>
 
 
-
+            <li>
+                <a href="widgets.html"><i class="fa fa-close"></i>Çıkış Yap<span class="nav-label"></span></a>
+            </li>
 
         </ul>
 

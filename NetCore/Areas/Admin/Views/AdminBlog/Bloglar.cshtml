@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Bloglar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using EntityLayer.Concrete
+@model List<Makale>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="ibox">
+                    <div class="ibox-content product-box">
+
+                        <div>
+                            <img src=@item.MakaleImgUrl height="225" width="250" />
+                        </div>
+                        <div class="product-desc">
+
+                            @{
+                                if (item.MakaleStatu == true)
+                                {
+                                    <span class="label label-info float-right">Yayında</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger float-right">Yayında Değil</span>
+                                }
+                            }
+
+                            <small class="text-muted">@item.Kategori.KategoriAdi</small>
+                            <a href="/Blog/BlogDetay/@item.MakaleId" class="product-name">@item.MakaleBaslik</a>
+
+
+
+                            <div class="small m-t-xs">
+                                @item.MakaleAciklama.Substring(0, 50) ...
+                            </div>
+                            <div class="m-t text-righ">
+
+                                <a asp-area="Admin" asp-controller="AdminBlog" asp-action="StatuTrue" asp-route-id=@item.MakaleId class="btn btn-xs  btn-primary">Yayına Al  </a>
+                                <a asp-area="Admin" asp-controller="AdminBlog" asp-action="StatuFalse" asp-route-id=@item.MakaleId class="btn btn-xs  btn-danger">Yayından Kaldır  </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+

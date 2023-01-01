@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "GidenMesaj";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model List<Mesaj>
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @Html.Partial("MesajHeadPartial")
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+
+
+                <h2>
+                    Giden Kutusu (2)
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Mesaj Kutunu Yenile"><i class="fa fa-refresh"></i> Yenile</button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Okunmamışları Gör"><i class="fa fa-eye"></i> </button>
+
+
+                </div>
+            </div>
+            <div class="mail-box">
+
+                <table class="table table-hover table-mail">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Gönderilen Yazar</th>
+                            <th>Mesaj</th>
+                            <th>Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="unread">
+                                <td class="check-mail">
+                                    <input type="checkbox" class="i-checks">
+                                </td>
+                                <td class="mail-ontact"><a href="mail_detail.html">@item.Alici.adSoyad</a></td>
+                                <td class="mail-subject"><a href="mail_detail.html">@item.MesajAciklama</a></td>
+                                <td class="text-left mail-date">@item.MesajTarih.ToShortDateString()</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>

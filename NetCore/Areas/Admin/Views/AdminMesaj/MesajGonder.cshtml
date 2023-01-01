@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "MesajGonder";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using NetCore.Models
+@model MesajGön
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox ">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+
+                        <a class="btn btn-block btn-primary compose-mail" href="/Admin/AdminMesaj/MesajGonder">Mesaj Gönder</a>
+                        <div class="space-25"></div>
+                        <h5>Folders</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="/Admin/AdminMesaj/GelenMesaj"> <i class="fa fa-inbox "></i> Gelen kutusu <span class="label label-warning float-right">16</span> </a></li>
+                            <li><a href="/Admin/AdminMesaj/GidenMesaj"> <i class="fa fa-envelope-o"></i> Giden Kutusu</a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+
+                <h2>
+                    Mesaj Gönder
+                </h2>
+            </div>
+            <div class="mail-box">
+
+
+                <div class="mail-body">
+
+                    <form asp-area="Admin" asp-controller="AdminMesaj" asp-action="MesajGonder">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Gönderilecek Yazar:</label>
+                            <div class="col-sm-10"><input type="text" name="aliciAdi" class="form-control" placeholder="canoge"></div>
+                        </div>
+
+                        <label>Mesajınız</label><br />
+                        <div class="mail-text h-200">
+
+                            <textarea class="form-control" rows="10" cols="10" name="mesajAciklama"></textarea>
+
+
+                        </div><br />
+                        @{
+                            if (ViewBag.hata == 1)
+                            {
+                                <label class="text-danger"><strong>Kullanıcı bulunamadı</strong></label><br />
+                            }
+                        }
+                        <button action="submit" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Gönder"><i class="fa fa-reply"></i> Gönder</button>
+
+                    </form>
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <
+
+
+

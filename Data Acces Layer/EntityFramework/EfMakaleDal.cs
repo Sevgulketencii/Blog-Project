@@ -18,7 +18,7 @@ namespace DataAccessLayer.EntityFramework
 
         public List<Makale> MakaleAdmin()
         {
-            return baglan.MakaleDb.Where(x=>x.AdminOnay == true).ToList();// Burada AppUser include edilip yazar adına erişilmesi gerekiyor
+            return baglan.MakaleDb.Include(y=>y.Kategori).Where(x=>x.AdminOnay == true).ToList();// Burada AppUser include edilip yazar adına erişilmesi gerekiyor
         }
 
         public int MakaleCount()

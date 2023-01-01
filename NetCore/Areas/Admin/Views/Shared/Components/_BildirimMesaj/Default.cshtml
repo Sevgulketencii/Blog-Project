@@ -10,11 +10,11 @@
     </a>
 </li>
 <li>
-    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label"> Mesajlar </span><span class="label label-warning float-right">0/0</span></a>
+    <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label"> Mesajlar </span><span class="label label-warning float-right">0/0</span></a>
     <ul class="nav nav-second-level collapse">
-        <li><a href="mailbox.html">Gelen Kutusu</a></li>
-        <li><a href="mail_detail.html">Giden Kutusu</a></li>
-        <li><a href="mail_compose.html">Yeni Mesaj</a></li>
+        <li><a asp-area="Admin" asp-controller="AdminMesaj" asp-action="GelenMesaj">Gelen Kutusu</a></li>
+        <li><a  asp-area="Admin" asp-controller="AdminMesaj" asp-action="GidenMesaj">Giden Kutusu</a></li>
+        <li><a asp-area="Admin" asp-controller="AdminMesaj" asp-action="MesajGonder">Yeni Mesaj</a></li>
 
     </ul>
 </li>

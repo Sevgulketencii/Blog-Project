@@ -11,5 +11,6 @@ namespace DataAccessLayer.Abstract
     public interface IMesajDal:IGenericDal<Mesaj>
     {
         List<Mesaj> YazarMesaj(Expression<Func<Mesaj,bool>>Filtre);
+        List<Mesaj> GidenMesaj(Expression<Func<Mesaj, bool>> Filtre2);
     }
 }

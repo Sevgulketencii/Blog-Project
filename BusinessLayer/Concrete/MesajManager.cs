@@ -41,6 +41,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Mesaj> YazarGidenMesaj(int id)
+        {
+            return _mesaj.GidenMesaj(x => x.Gönderen.Id == id);
+        }
+
         public List<Mesaj> YazarMesaj(int alici)
         {
             return _mesaj.YazarMesaj(x => x.MesajAlici == alici);

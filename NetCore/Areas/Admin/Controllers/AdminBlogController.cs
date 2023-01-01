@@ -13,7 +13,9 @@ namespace NetCore.Areas.Admin.Controllers
     {
         MakaleManager blog = new MakaleManager(new EfMakaleDal());
 
-        public IActionResult BlogList()
+      
+
+        public IActionResult Bloglar()
         {
             var list = blog.MakaleAdmin();
             return View(list);
@@ -25,7 +27,7 @@ namespace NetCore.Areas.Admin.Controllers
             guncellenen.MakaleStatu = false;
             blog.güncelle(guncellenen);
 
-            return RedirectToAction("BlogList");
+            return RedirectToAction("Bloglar");
         }
 
         public IActionResult StatuTrue(int id)
@@ -34,7 +36,7 @@ namespace NetCore.Areas.Admin.Controllers
             guncellenen.MakaleStatu = true;
             blog.güncelle(guncellenen);
 
-            return RedirectToAction("BlogList");
+            return RedirectToAction("Bloglar");
         }
 
     }

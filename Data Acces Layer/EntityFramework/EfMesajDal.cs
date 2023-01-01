@@ -15,6 +15,12 @@ namespace DataAccessLayer.EntityFramework
     public class EfMesajDal : GenericRepository<Mesaj>, IMesajDal
     {
         Context baglan = new Context();
+
+        public List<Mesaj> GidenMesaj(Expression<Func<Mesaj, bool>> Filtre2)
+        {
+            return baglan.MesajDb.Include(x => x.Alici).Where(Filtre2).ToList();
+        }
+
         public List<Mesaj> YazarMesaj(Expression<Func<Mesaj, bool>> Filtre)
         {
             return baglan.MesajDb.Include(x=>x.Gönderen).Where(Filtre).ToList();
