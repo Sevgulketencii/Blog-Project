@@ -39,7 +39,7 @@ namespace NetCore.Controllers
             var result = await _userManager.CreateAsync(user, yeniKullanici.sifre);
             if (result.Succeeded)
             {
-                return RedirectToAction("Yazar", "YazarController");
+                return RedirectToAction("YazarLogin", "YazarLogin");
 
             }
             return View();

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "RolGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EntityLayer.Concrete
+@model AppRole
+
+<form action="RolGuncelle" method="post">
+    <label>Rol Adı</label><br />
+    <input type="hidden" name="RolId" value=@Model.Id  />
+    <input type="text" name="ModelAdi" value=@Model.Name class="form-control" /><br />
+    <button action="submit" class="btn btn-success">Güncelle</button>
+</form>

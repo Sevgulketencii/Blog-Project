@@ -50,5 +50,6 @@ namespace BusinessLayer.Concrete
         {
             return _mesaj.YazarMesaj(x => x.MesajAlici == alici);
         }
+
     }
 }

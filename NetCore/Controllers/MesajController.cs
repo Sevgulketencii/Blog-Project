@@ -59,6 +59,7 @@ namespace NetCore.Controllers
         public IActionResult MesajDetay(int id)
         {
             var veri = list.IdGore(id);
+            
             return View(veri);
         }
     }

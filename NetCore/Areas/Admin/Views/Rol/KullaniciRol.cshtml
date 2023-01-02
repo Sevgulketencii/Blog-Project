@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "KullaniciRol";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using EntityLayer.Concrete
+@model List<AppUser> 
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Kullanıcı ID</th>
+            <th>Kullanıcı ADI</th>
+            <th>Rol Ata</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td><a href="/Admin/Rol/RolDetay/@item.Id" class="btn btn-success">Rol</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

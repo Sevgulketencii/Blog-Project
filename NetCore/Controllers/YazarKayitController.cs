@@ -25,7 +25,7 @@ namespace NetCore.Controllers
             yazar.YazarStatu = true;
             yazar.YazarHakkinda = "Boş";
             veri.ekle(yazar);
-            return RedirectToAction();
+            return RedirectToAction("YazarLogin", "YazarLogin");
         }
     }
 }
