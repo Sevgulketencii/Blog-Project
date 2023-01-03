@@ -44,7 +44,7 @@ namespace NetCore.Controllers
                 return RedirectToAction("MakaleList", "Yazar");
 
             }
-               
+            ViewBag.hata = 1;
             
             return View(p);
         }
@@ -67,5 +67,11 @@ namespace NetCore.Controllers
             //    return RedirectToAction("Blog", "Blog");
             //}
             //return View();
+
+
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }

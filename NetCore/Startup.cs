@@ -42,6 +42,15 @@ namespace NetCore
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
             {
                 x.LoginPath = "/YazarLogin/YazarLogin";
+               
+            });
+
+            services.ConfigureApplicationCookie(y =>
+            {
+                y.Cookie.HttpOnly = true;
+                y.LoginPath = "/YazarLogin/YazarLogin";
+                y.AccessDeniedPath = "/YazarLogin/AccessDenied";
+                y.SlidingExpiration = true;
             });
         }
 

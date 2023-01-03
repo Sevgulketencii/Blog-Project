@@ -5,7 +5,7 @@
 }
 
 @using EntityLayer.Concrete
-@model List<AppUser> 
+@model List<AppUser>
 
 <table class="table table-hover">
     <thead>
@@ -22,8 +22,15 @@
                 <td>@item.Id</td>
                 <td>@item.UserName</td>
                 <td><a href="/Admin/Rol/RolDetay/@item.Id" class="btn btn-success">Rol</a></td>
+
             </tr>
         }
 
     </tbody>
 </table>
+@{
+    if (ViewBag.empty == 1)
+    {
+        <label>Kullanıcının Rolü mevcut değil</label>
+    }
+}

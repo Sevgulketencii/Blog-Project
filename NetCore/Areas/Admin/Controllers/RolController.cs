@@ -83,8 +83,13 @@ namespace NetCore.Areas.Admin.Controllers
         public async Task<IActionResult> RolDetay(int id)
         {
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
-            var rol =await _userManager.GetRolesAsync(user);
-            
+            var rol = await _userManager.GetRolesAsync(user);
+            if (rol.Count() == 0)
+            {
+                ViewBag.empty = 1;
+                return RedirectToAction("KullaniciRol");
+            }
+            ViewBag.rol = rol;
             return View();
         }
     }
