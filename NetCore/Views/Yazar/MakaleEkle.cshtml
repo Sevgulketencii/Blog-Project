@@ -3,18 +3,22 @@
     ViewData["Title"] = "MakaleEkle";
     Layout = "~/Views/Shared/YazarLayout.cshtml";
 }
+@using EntityLayer.Concrete
+@model Makale
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <div>
     <form action="/Yazar/MakaleEkle" method="post">
 
         <label>Blog Başlık</label><br />
-        <input type="text" name="MakaleBaslik" value="" class="form-control" /><br />
-
+        <input type="text" name="MakaleBaslik" value="" class="form-control" />
+        @Html.ValidationMessageFor(x => x.MakaleBaslik)
+       
         <input type="hidden" name="MakaleTarih" value=@DateTime.Now class="form-control" /><br />
-
+       
         <label>Blog Metin</label><br />
-        <input type="text" name="MakaleAciklama" value="" class="form-control" /><br />
-
+        <input type="text" name="MakaleAciklama" value="" class="form-control" />
+        @Html.ValidationMessageFor(x => x.MakaleAciklama)
+    <br />
         <label>Blog Img URL</label><br />
         <input type="text" name="MakaleImgUrl" value="" class="form-control" /><br />
 

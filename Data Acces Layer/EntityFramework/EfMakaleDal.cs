@@ -38,7 +38,7 @@ namespace DataAccessLayer.EntityFramework
 
         public List<Makale> SonMakaleler()
         {
-            return baglan.MakaleDb.Include(x => x.Kategori).OrderByDescending(x => x.MakaleId).Take(4).ToList();
+            return baglan.MakaleDb.Include(x => x.Kategori).OrderByDescending(x => x.MakaleId).Where(y=>y.AdminOnay==true && y.MakaleStatu==true).Take(4).ToList();
         }
 
       

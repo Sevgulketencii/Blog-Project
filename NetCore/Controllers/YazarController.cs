@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -53,11 +55,24 @@ namespace NetCore.Controllers
         [HttpPost]
         public async Task<IActionResult> MakaleEkle(Makale eklenen)
         {
-               
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            eklenen.MakaleStatu = true;
-            eklenen.Id = user.Id;      
-            list.ekle(eklenen);
+            MakaleValidator mv = new MakaleValidator();
+            ValidationResult result = mv.Validate(eklenen);
+            if (result.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                eklenen.MakaleStatu = true;
+                eklenen.Id = user.Id;
+                list.ekle(eklenen);
+                return RedirectToAction("MakaleList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            
             return View();
         }
 
