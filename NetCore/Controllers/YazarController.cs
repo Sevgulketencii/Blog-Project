@@ -51,10 +51,11 @@ namespace NetCore.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> MakaleEkle(Makale eklenen)
         {
+
             MakaleValidator mv = new MakaleValidator();
             ValidationResult result = mv.Validate(eklenen);
             if (result.IsValid)

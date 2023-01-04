@@ -11,17 +11,17 @@
 
         <label>Blog Başlık</label><br />
         <input type="text" name="MakaleBaslik" value="" class="form-control" />
-        @Html.ValidationMessageFor(x => x.MakaleBaslik)
+        <span asp-validation-for="MakaleBaslik" class="text-danger"></span><br />
        
         <input type="hidden" name="MakaleTarih" value=@DateTime.Now class="form-control" /><br />
        
         <label>Blog Metin</label><br />
         <input type="text" name="MakaleAciklama" value="" class="form-control" />
-        @Html.ValidationMessageFor(x => x.MakaleAciklama)
+        <span asp-validation-for="MakaleAciklama" class="text-danger"></span><br />
     <br />
         <label>Blog Img URL</label><br />
-        <input type="text" name="MakaleImgUrl" value="" class="form-control" /><br />
-
+        <input type="text" name="MakaleImgUrl" value="" class="form-control" />
+        <span asp-validation-for="MakaleImgUrl" class="text-danger"></span><br /><br />
         <label>Blog Kategori</label><br />
         <select name="KategoriId" class="form-control">
             <option value="1">Yazılım</option>
@@ -30,7 +30,7 @@
             <option value="4">Oyun</option>
         </select>
 
-
+        <br /><br />
         <button id="btn1" action="submit" class="btn btn-success">Ekle</button>
 
     </form>

@@ -33,7 +33,7 @@ namespace NetCore.Controllers
            
             return View();
         }
-      
+        
         [HttpPost]
         public async Task<IActionResult> YazarLogin(UserSignIn p)
         {
@@ -41,7 +41,7 @@ namespace NetCore.Controllers
             var result = await _signInManager.PasswordSignInAsync(p.kullaniciAdi, p.sifre, false, false);
             if (result.Succeeded)
             {
-                return RedirectToAction("MakaleList", "Yazar");
+                return RedirectToAction("DashBoard", "YazarDashBoard");
 
             }
             ViewBag.hata = 1;
