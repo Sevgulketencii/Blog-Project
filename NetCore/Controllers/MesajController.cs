@@ -58,8 +58,9 @@ namespace NetCore.Controllers
 
         public IActionResult MesajDetay(int id)
         {
-            var veri = list.IdGore(id);
-            
+            var veri = list.MesajDetay(id);
+            veri.MesajStatu = true; // Bildirimlere gelen mesaj adeti statü'ye göre çağırılması için ayrı bir metod oluşturulacak
+            list.güncelle(veri);
             return View(veri);
         }
     }

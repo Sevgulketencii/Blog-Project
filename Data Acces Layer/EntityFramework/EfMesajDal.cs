@@ -21,6 +21,11 @@ namespace DataAccessLayer.EntityFramework
             return baglan.MesajDb.Include(x => x.Alici).Where(Filtre2).ToList();
         }
 
+        public Mesaj MesajDetay(int id)
+        {
+            return baglan.MesajDb.FirstOrDefault(x => x.MesajId == id);
+        }
+
         public List<Mesaj> YazarMesaj(Expression<Func<Mesaj, bool>> Filtre)
         {
             return baglan.MesajDb.Include(x=>x.Gönderen).Where(Filtre).ToList();

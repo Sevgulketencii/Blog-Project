@@ -84,6 +84,7 @@ namespace NetCore.Areas.Admin.Controllers
         {
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
             var rol = await _userManager.GetRolesAsync(user);
+            
             if (rol.Count() == 0)
             {
                 ViewBag.empty = 1;
@@ -92,6 +93,9 @@ namespace NetCore.Areas.Admin.Controllers
             ViewBag.rol = rol;
             return View();
         }
+
+
+        
     }
 
 }

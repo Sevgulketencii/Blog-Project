@@ -11,5 +11,6 @@ namespace BusinessLayer.Abstract
     {
         List<Mesaj> YazarMesaj(int id);
         List<Mesaj> YazarGidenMesaj(int id);
+        Mesaj MesajDetay(int id);
     }
 }

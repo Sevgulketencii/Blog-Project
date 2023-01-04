@@ -12,5 +12,6 @@ namespace DataAccessLayer.Abstract
     {
         List<Mesaj> YazarMesaj(Expression<Func<Mesaj,bool>>Filtre);
         List<Mesaj> GidenMesaj(Expression<Func<Mesaj, bool>> Filtre2);
+        Mesaj MesajDetay(int id);
     }
 }

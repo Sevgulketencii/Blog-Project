@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete
 
         public void güncelle(Mesaj güncellenen)
         {
-            throw new NotImplementedException();
+            _mesaj.güncelle(güncellenen);
         }
 
         public Mesaj IdGore(int id)
@@ -34,6 +34,11 @@ namespace BusinessLayer.Concrete
         public List<Mesaj> Listele()
         {
             throw new NotImplementedException();
+        }
+
+        public Mesaj MesajDetay(int id)
+        {
+            return _mesaj.MesajDetay(id);
         }
 
         public void sil(Mesaj silinen)
@@ -48,8 +53,9 @@ namespace BusinessLayer.Concrete
 
         public List<Mesaj> YazarMesaj(int alici)
         {
-            return _mesaj.YazarMesaj(x => x.MesajAlici == alici);
+            return _mesaj.YazarMesaj(x => x.MesajAlici == alici );
         }
 
+       
     }
 }
