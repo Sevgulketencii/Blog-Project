@@ -1,4 +1,4 @@
-# NetCore
+# Blog Project
 .Net Core 5.0 ile yazılmış olup kullanıcıların, yazar ve admin rollerini barındırmaktadır. Proje seviyesinde doğrulama kullanılmıştır ve identity kullanılarak giriş ve kayıt işlemleri gerçekleştirilmektedir. Entity Framework’ün code-first yaklaşımı ile geliştirilmiştir. Repository Design Pattern kullanılarak crud işlemleri tek merkezden yapılması sağlanmıştır. Kullanıcı Arayüzü katmanındaki birkaç controller projede oluşturulan Web Api’de ki metodlar ile kullanıcıya sunulup, admin tarafından crud işlemleri sağlanabilmektedir.
 
 ![blog-1](https://user-images.githubusercontent.com/114435614/210837795-7007e728-b4e9-48e9-b1b7-9d21d521bd76.png)
